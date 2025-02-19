@@ -58,7 +58,8 @@ const Signup = () => {
 
     try {
       const sendData = await axios.post(
-        "http://localhost:3001/login",
+        // "http://localhost:3001/login",
+        "https://foland-realty-server.onrender.com/signup",
         formData
       );
       const { data } = await sendData;
@@ -71,7 +72,7 @@ const Signup = () => {
       const response = await sendToken.data;
       console.log(response);
       localStorage.setItem("token", data.token);
-      localStorage.setItem("isLoggedIn", 'true');
+      localStorage.setItem("isLoggedIn", "true");
       location.replace("/home");
     } catch (err) {
       console.log((err as Error).message);
@@ -213,10 +214,7 @@ const Signup = () => {
         </div>
         <div className="flex justify-between">
           <span className="spacing-4">Already have an account?</span>
-          <NavLink
-            className="font-bold text-right text-blue-500"
-            to="/login"
-          >
+          <NavLink className="font-bold text-right text-blue-500" to="/login">
             {" "}
             Login
           </NavLink>
