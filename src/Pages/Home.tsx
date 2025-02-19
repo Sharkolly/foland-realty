@@ -4,7 +4,6 @@ const Home = () => {
   return (
     <div>
       Hello WOrld
-
       <NavLink to='/login'>Login</NavLink>
       <NavLink to='/signup'>Sign up</NavLink>
       <NavLink to='/about'>About</NavLink>
