@@ -64,7 +64,9 @@ const Signup = () => {
       );
       const { data } = await sendData;
 
-      const sendToken = await axios.get("http://localhost:3001/token-verify", {
+      const sendToken = await axios.get(
+        // "http://localhost:3001/token-verify",{
+        "https://foland-realty-server.onrender.com/token-verify", {
         headers: {
           Authorization: `${data.token}`,
         },
@@ -73,7 +75,7 @@ const Signup = () => {
       console.log(response);
       localStorage.setItem("token", data.token);
       localStorage.setItem("isLoggedIn", "true");
-      location.replace("/home");
+      location.replace("/admin");
     } catch (err) {
       console.log((err as Error).message);
     }
