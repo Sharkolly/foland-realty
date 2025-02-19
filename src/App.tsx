@@ -18,7 +18,7 @@ function App() {
   const { isLoggedIn } = useContextStore();
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route>
+      <Route path='/' >
           {isLoggedIn ? "" : <Route path="/login" element={<Layout><Login /></Layout>} />}
           {isLoggedIn ? "" : <Route path="/signup" element={<Layout><Signup /></Layout>} />}
           {isLoggedIn ? (
@@ -28,14 +28,14 @@ function App() {
           )}
         {/* </Route> */}
         <Route
-          path="/home"
+          index
           element={
             <ProtectedRoute>
               <Admin />
             </ProtectedRoute>
           }
         />
-        <Route path="/" element={<Home />} />
+        <Route index  element={<Home />} />
         <Route path="/about" element={<About />} />
       </Route>
     )
