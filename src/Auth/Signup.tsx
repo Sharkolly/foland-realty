@@ -45,28 +45,32 @@ const Signup = () => {
 
   const formSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("firstName", firstName);
-    formData.append("lastName", lastName);
-    formData.append("email", email);
-    formData.append("role", role);
-    formData.append("password", password);
+    // const formData = new FormData();
+    // formData.append("firstName", firstName);
+    // formData.append("lastName", lastName);
+    // formData.append("email", email);
+    // formData.append("role", role);
+    // formData.append("password", password);
     // formData.append("profilePic", profilePic as Blob);
+
+    const formData = {
+      firstName, lastName, email, role, password
+    }
 
     if (!firstName || !lastName || !password  || !email)
       setFormError("Complete the form");
 
     try {
       const sendData = await axios.post(
-        // "http://localhost:3001/login",
-        "https://foland-realty-server.onrender.com/signup",
+        "http://localhost:3001/signup",
+        // "https://foland-realty-server.onrender.com/signup",
         formData
       );
       const { data } = await sendData;
 
       const sendToken = await axios.get(
-        // "http://localhost:3001/token-verify",{
-        "https://foland-realty-server.onrender.com/token-verify", {
+        "http://localhost:3001/token-verify",{
+        // "https://foland-realty-server.onrender.com/token-verify", {
         headers: {
           Authorization: `${data.token}`,
         },
