@@ -7,7 +7,7 @@ import axios from "axios";
 import { useContextStore } from "../Store/Context";
 
 const Signup = () => {
-  const { email, setEmail, password, setPassword, profilePic, setProfilePic } =
+  const { email, setEmail, password, setPassword  } =
     useContextStore();
   const [showPassword, setShowPassword] = useState(false);
   const [role, setRole] = useState("Tenant");
@@ -39,9 +39,9 @@ const Signup = () => {
     setPassword(e.target.value);
   };
 
-  const acceptProfilePicture = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) setProfilePic(e.target.files[0]);
-  };
+  // const acceptProfilePicture = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.files) setProfilePic(e.target.files[0]);
+  // };
 
   const formSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,9 +51,9 @@ const Signup = () => {
     formData.append("email", email);
     formData.append("role", role);
     formData.append("password", password);
-    formData.append("profilePic", profilePic as Blob);
+    // formData.append("profilePic", profilePic as Blob);
 
-    if (!firstName || !lastName || !password || !profilePic || !email)
+    if (!firstName || !lastName || !password  || !email)
       setFormError("Complete the form");
 
     try {
@@ -157,7 +157,7 @@ const Signup = () => {
               : ""}
           </p>
         </div>
-        <div>
+        {/* <div>
           <div className="flex w-full items-center items-center justify-between">
             <label htmlFor="Profile Picture" className="text-lg font-bold">
               Profile Picture:
@@ -172,7 +172,7 @@ const Signup = () => {
           <p className="opacity-[.7]">
             {profilePic ? profilePic.name : "No File Selected Yet"}{" "}
           </p>
-        </div>
+        </div> */}
         <div className="flex gap-5 max-md:gap-3 text-slate-300 justify-between">
           <span className="font-bold">Sign as: </span>
           <div className="flex gap-3">

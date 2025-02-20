@@ -1,5 +1,3 @@
-// import { Outlet } from 'react-router-dom';
-
 type ChildrenProp =  {
   children: React.ReactNode
 }
