@@ -6,6 +6,7 @@ import { IoEyeOffSharp } from "react-icons/io5";
 import axios, { AxiosError } from "axios";
 import { useContextStore } from "../Store/Context";
 import { toast } from "react-toastify";
+import Logo from "../Images/logo.png";
 
 const Signup = () => {
   const { email, setEmail, password, setPassword } = useContextStore();
@@ -49,7 +50,7 @@ const Signup = () => {
     const formData = {
       firstName,
       lastName,
-      email,
+      email: email.toLowerCase(),
       role,
       password,
     };
@@ -77,7 +78,6 @@ const Signup = () => {
             },
           }
         );
-        toast.success(data.message);
         localStorage.setItem("token", data.token);
         localStorage.setItem("isLoggedIn", "true");
         location.replace("/admin");
@@ -104,13 +104,19 @@ const Signup = () => {
       }
       if (axiosError.response?.data?.emailValidationError) {
         setEmailError(axiosError.response?.data?.emailValidationError);
+        setFormResponse('');
+        setTimeout(() => {
+          setEmailError("");
+        }, 4000);
       }
       if (axiosError.response?.data?.passwordValidationError) {
         setPasswordError(axiosError.response?.data?.passwordValidationError);
+        setFormResponse('');
+        setTimeout(() => {
+          setPasswordError("");
+        }, 4000);
       }
-      toast.error(errorMessage);
       console.error("Error:", errorMessage);
-      // setFormResponse(errorMessage);
     } finally {
       setIsFetching(false);
     }
@@ -118,18 +124,19 @@ const Signup = () => {
 
   // Reset error message after 4s
   useEffect(() => {
-    if (formResponse || passwordError || emailError) {
+    if (formResponse) {
       setTimeout(() => {
-        setFormResponse("");
-        setPasswordError("");
+        setFormResponse("");;
         setEmailError("");
       }, 4000);
-    }
+    };
   }, [formResponse]);
 
   return (
     <div className="w-[80%]  mx-auto max-md:w-[90%]">
-      {/* <img src={Logo} className="scale-[.6]" alt="Foland Realty" /> */}
+  <div className="flex justify-center">
+        <img src={Logo} className="scale-[.6]" alt="Foland Realty" />
+      </div>
       <div className="">
         <h1 className="text-center  mt-0 font-bold text-2xl mb-9 max-md:mb-6">
           Sign Up to<span className="text-blue-600"> Foland Realty</span>
@@ -160,6 +167,7 @@ const Signup = () => {
             className="w-full outline-none text-black pl-3 h-[2.5em] border border-gray-400 rounded-md"
             type="email"
             name="email"
+            value={email.toLowerCase()}
             placeholder="Enter your email address..."
             onChange={(e) => emailOnchangeInput(e)}
           />

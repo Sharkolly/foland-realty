@@ -15,6 +15,7 @@ import Admin from "./Admin/Admin";
 import NoAuth from "./Protected_Route/NoAuth";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Error from "./Error/Error";
 
 // import { useContextStore } from "./Store/Context";
 
@@ -65,6 +66,7 @@ function App() {
         />
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="*" element={<Error />} />
       </Route>
     )
   );

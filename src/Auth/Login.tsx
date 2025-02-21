@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { IoEyeOffSharp } from "react-icons/io5";
 import { useContextStore } from "../Store/Context";
 import axios, { AxiosError } from "axios";
-import { toast } from "react-toastify";
+import Logo from "../Images/logo.png";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -28,28 +28,26 @@ const Login = () => {
 
   const formSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = { email, password };
+    const formData = { email: email.toLowerCase(), password };
 
     try {
       setIsFetching(true);
       const { data } = await axios.post(
-        "http://localhost:3001/login",
-        // "https://foland-realty-server.onrender.com/login",
+        // "http://localhost:3001/login",
+        "https://foland-realty-server.onrender.com/login",
         formData
       );
 
       if (data.token) {
         const { data: response } = await axios.get(
-          "http://localhost:3001/token-verify",
-          // "https://foland-realty-server.onrender.com/token-verify",
+          // "http://localhost:3001/token-verify",
+          "https://foland-realty-server.onrender.com/token-verify",
           {
             headers: {
               Authorization: `${data.token}`,
             },
           }
         );
-        toast.success(data.message);
-        console.log(data.message);
         localStorage.setItem("token", data.token);
         localStorage.setItem("isLoggedIn", "true");
         location.replace("/admin");
@@ -58,7 +56,6 @@ const Login = () => {
       const axiosError = error as AxiosError<{ message?: string }>;
       const errorMessage =
         axiosError.response?.data?.message || "An unexpected error occurred.";
-      toast.error(errorMessage);
       console.error("Error:", errorMessage);
       setFormResponse(errorMessage);
     } finally {
@@ -77,6 +74,9 @@ const Login = () => {
 
   return (
     <div className="w-[80%] mx-auto max-md:w-[85%]">
+      <div className="flex justify-center">
+        <img src={Logo} className="scale-[.6]" alt="Foland Realty" />
+      </div>
       <h1 className="text-center text-black font-bold text-2xl mb-8">
         Login to<span className="text-blue-600"> Foland Realty</span>
       </h1>
@@ -84,6 +84,7 @@ const Login = () => {
       <form className="flex flex-col gap-6" onSubmit={(e) => formSubmit(e)}>
         <div>
           <input
+            value={email.toLowerCase()}
             onChange={(e) => emailOnchangeInput(e)}
             className="w-full outline-none text-black pl-3 h-[2.5em] border border-gray-400 rounded-md"
             type="email"
@@ -123,7 +124,13 @@ const Login = () => {
         </div>
 
         <div className="w-full text-">
-          <Link to="/reset-password" className="text-blue-500 text-right font-bold"> Forgot Password</Link>
+          <Link
+            to="/reset-password"
+            className="text-blue-500 text-right font-bold"
+          >
+            {" "}
+            Forgot Password
+          </Link>
         </div>
         <p
           style={

@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import axios, { AxiosError } from "axios";
+import Logo from "../Images/logo.png";
+import { Link } from "react-router-dom";
+
 // import { toast } from "react-toastify";
 
 const Reset_Password = () => {
@@ -19,7 +22,8 @@ const Reset_Password = () => {
     try {
       setIsFetching(true);
       const { data } = await axios.post(
-        "http://localhost:3001/forgot-password",
+        // "http://localhost:3001/forgot-password",
+        "https://foland-realty-server.onrender.com/forgot-password",
         { email }
       );
       setMessageResponse(data.message);
@@ -43,7 +47,11 @@ const Reset_Password = () => {
 
     try {
       setIsFetching(true);
-      const { data } = await axios.post("http://localhost:3001/verify-code", {
+      const { data } = await axios.post(
+        // "http://localhost:3001/verify-code", 
+        "https://foland-realty-server.onrender.com/verify-code",
+      
+      {
         code,
         email,
       });
@@ -67,7 +75,8 @@ const Reset_Password = () => {
     try {
       setIsFetching(true);
       const { data } = await axios.post(
-        "http://localhost:3001/reset-password",
+        // "http://localhost:3001/reset-password",
+        "https://foland-realty-server.onrender.com/reset-password",
         {
           newPassword,
         }
@@ -96,6 +105,9 @@ const Reset_Password = () => {
 
   return (
     <div className="w-[80%] mx-auto max-md:w-[85%]">
+      <div className="flex justify-center">
+        <img src={Logo} className="scale-[.6]" alt="Foland Realty" />
+      </div>
       {steps === 1 && (
         <div>
           <h1 className=" text-black font-bold text-2xl mb-8">
@@ -115,6 +127,10 @@ const Reset_Password = () => {
                   handleEmailOnChange(e)
                 }
               />
+            </div>
+
+            <div className='text-right text-blue-800 '>
+              <Link to='/login'>Go back</Link>
             </div>
             <p
               style={
