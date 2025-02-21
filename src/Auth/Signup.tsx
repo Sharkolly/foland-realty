@@ -144,9 +144,6 @@ const Signup = () => {
             placeholder="Firstname..."
             onChange={(e) => firstNameOnchangeInput(e)}
           />
-          {/* <p className="text-sm text-red-700">
-            {firstName.length <= 0 ? "Firstname is empty" : ""}
-          </p> */}
         </div>
 
         <div>
@@ -157,9 +154,6 @@ const Signup = () => {
             placeholder="Lastname..."
             onChange={(e) => lastNameOnchangeInput(e)}
           />
-          {/* <p className="text-sm text-red-700">
-            {lastName.length <= 0 ? "Lastname is empty" : ""}
-          </p> */}
         </div>
         <div>
           <input
@@ -169,11 +163,6 @@ const Signup = () => {
             placeholder="Enter your email address..."
             onChange={(e) => emailOnchangeInput(e)}
           />
-          {/* <p className="text-sm text-red-700">
-            {!regexForValidEmail.test(email)
-              ? "Email is not a valid email"
-              : ""}
-          </p> */}
           <p className="text-sm text-red-700">{emailError} </p>
         </div>
 
@@ -198,12 +187,6 @@ const Signup = () => {
               />
             )}
           </div>
-          {/* <p className="text-sm text-red-700">
-            {!regexForValidPassword.test(password)
-              ? "Password must have minimum of 8 characters, 1 Uppercase Letter, 1 Lowercase Letter, 1 Number , 1 Special Character"
-              : ""}
-          </p> */}
-
           <p className="text-sm text-red-700">{passwordError} </p>
         </div>
 

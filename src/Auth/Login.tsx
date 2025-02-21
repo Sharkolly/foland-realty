@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { MdRemoveRedEye } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { IoEyeOffSharp } from "react-icons/io5";
@@ -33,15 +33,15 @@ const Login = () => {
     try {
       setIsFetching(true);
       const { data } = await axios.post(
-        // "http://localhost:3001/login",
-        "https://foland-realty-server.onrender.com/login",
+        "http://localhost:3001/login",
+        // "https://foland-realty-server.onrender.com/login",
         formData
       );
 
       if (data.token) {
         const { data: response } = await axios.get(
-          // "http://localhost:3001/token-verify",
-          "https://foland-realty-server.onrender.com/token-verify",
+          "http://localhost:3001/token-verify",
+          // "https://foland-realty-server.onrender.com/token-verify",
           {
             headers: {
               Authorization: `${data.token}`,
@@ -76,7 +76,7 @@ const Login = () => {
   }, [formResponse]);
 
   return (
-    <div className="w-[80%] mx-auto max-md:w-[90%]">
+    <div className="w-[80%] mx-auto max-md:w-[85%]">
       <h1 className="text-center text-black font-bold text-2xl mb-8">
         Login to<span className="text-blue-600"> Foland Realty</span>
       </h1>
@@ -120,6 +120,10 @@ const Login = () => {
             {" "}
             Sign Up
           </NavLink>
+        </div>
+
+        <div className="w-full text-">
+          <Link to="/reset-password" className="text-blue-500 text-right font-bold"> Forgot Password</Link>
         </div>
         <p
           style={
