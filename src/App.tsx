@@ -13,6 +13,9 @@ import Reset_Password from "./Auth/Reset_Password";
 import ProtectedRoute from "./Protected_Route/ProtectedRoute";
 import Admin from "./Admin/Admin";
 import NoAuth from "./Protected_Route/NoAuth";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // import { useContextStore } from "./Store/Context";
 
 function App() {
@@ -20,14 +23,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
-        {/* {isLoggedIn ? "" : <Route path="/login" element={<Layout><Login /></Layout>} />} */}
-        {/* {isLoggedIn ? "" : <Route path="/signup" element={<Layout><Signup /></Layout>} />} */}
-        {/* {isLoggedIn ? (
-            ""
-          ) : (
-            <Route path="/reset-password" element={<Layout><Reset_Password /></Layout>} />
-          )} */}
-        {/* </Route> */}
+
         <Route
           path="/login"
           element={
@@ -76,6 +72,7 @@ function App() {
   return (
     <>
       <RouterProvider router={router} />
+      <ToastContainer />
     </>
   );
 }
