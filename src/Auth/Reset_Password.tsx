@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { MdRemoveRedEye } from "react-icons/md";
+import { IoEyeOffSharp } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import axios, { AxiosError } from "axios";
 import Logo from "../Images/logo.png";
@@ -13,6 +15,12 @@ const Reset_Password = () => {
   const [newPassword, setNewPassword] = useState<string>("");
   const [messageResponse, setMessageResponse] = useState<string>("");
   const [isFetching, setIsFetching] = useState<boolean>(false);
+  const [showPassword, setShowPassword] = useState(false);
+
+  
+  const changeShowPasswordStatus = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleEmailOnChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setEmail(e.target.value);
@@ -22,8 +30,8 @@ const Reset_Password = () => {
     try {
       setIsFetching(true);
       const { data } = await axios.post(
-        // "http://localhost:3001/forgot-password",
-        "https://foland-realty-server.onrender.com/forgot-password",
+        "http://localhost:3001/forgot-password",
+        // "https://foland-realty-server.onrender.com/forgot-password",
         { email }
       );
       setMessageResponse(data.message);
@@ -48,8 +56,8 @@ const Reset_Password = () => {
     try {
       setIsFetching(true);
       const { data } = await axios.post(
-        // "http://localhost:3001/verify-code", 
-        "https://foland-realty-server.onrender.com/verify-code",
+        "http://localhost:3001/verify-code", 
+        // "https://foland-realty-server.onrender.com/verify-code",
       
       {
         code,
@@ -75,10 +83,11 @@ const Reset_Password = () => {
     try {
       setIsFetching(true);
       const { data } = await axios.post(
-        // "http://localhost:3001/reset-password",
-        "https://foland-realty-server.onrender.com/reset-password",
+        "http://localhost:3001/reset-password",
+        // "https://foland-realty-server.onrender.com/reset-password",
         {
           newPassword,
+          email
         }
       );
       setMessageResponse(data.message);
@@ -203,14 +212,26 @@ const Reset_Password = () => {
             className="flex flex-col gap-6"
             onSubmit={(e) => resetPassword(e)}
           >
-            <div>
+            <div className="relative">
               <input
-                className="w-full outline-none text-black pl-3 h-[2.5em] border border-gray-400 rounded-md"
-                type="password"
+                // className="w-full outline-none text-black pl-3 h-[2.5em] border border-gray-400 rounded-md"
+                   className="w-full h-[2.5em] outline-none text-black pl-3 border border-gray-400 rounded-md"
+                type={showPassword ? "text" : "password"}
                 placeholder="Enter new password"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
               />
+              {showPassword ? (
+              <IoEyeOffSharp
+                onClick={changeShowPasswordStatus}
+                className="absolute top-[50%] translate-y-[-50%] text-xl  text-black right-[20px] z-[10] max-md:right-[15px]"
+              />
+            ) : (
+              <MdRemoveRedEye
+                onClick={changeShowPasswordStatus}
+                className="absolute top-[50%] translate-y-[-50%] text-xl  text-black right-[20px] z-[10] max-md:right-[15px] "
+              />
+            )}
             </div>
             <p
               style={
