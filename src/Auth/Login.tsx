@@ -6,6 +6,7 @@ import { IoEyeOffSharp } from "react-icons/io5";
 import { useContextStore } from "../Store/Context";
 import axios, { AxiosError } from "axios";
 import Logo from "../Images/logo.png";
+// import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -56,14 +57,14 @@ const Login = () => {
       const axiosError = error as AxiosError<{ message?: string }>;
       const errorMessage =
         axiosError.response?.data?.message || "An unexpected error occurred.";
-      console.error("Error:", errorMessage);
       setFormResponse(errorMessage);
     } finally {
-      setIsFetching(false);
+      setTimeout(() => {
+        setIsFetching(false);
+      },  2500);
     }
   };
 
-  // Reset error message after 4s
   useEffect(() => {
     if (formResponse) {
       setTimeout(() => {
@@ -74,6 +75,11 @@ const Login = () => {
 
   return (
     <div className="w-[80%] mx-auto max-md:w-[85%]">
+       {/* <Helmet> */}
+        {/* <title>Log In - Foland Realty</title> */}
+        {/* <meta name="description" content="Learn more about Foland Realty, our mission, and how we help you find and manage rental properties." /> */}
+        {/* <meta name="keywords" content="about Foland Realty, real estate company, rental management, property leasing" /> */}
+      {/* </Helmet> */}
       <div className="flex justify-center">
         <img src={Logo} className="scale-[.6]" alt="Foland Realty" />
       </div>
@@ -144,8 +150,7 @@ const Login = () => {
         </p>
         <div className="flex items-center justify-center w-full">
           <button
-            disabled={isFetching ? true : false}
-            className="cursor-pointer w-full hover:font-bold bg-blue-800 text-white px-8 pointer rounded-lg py-2.5"
+                className={`${isFetching ? 'opacity-[.6]' : ''} cursor-pointer w-full hover:font-bold bg-blue-800 text-white px-8 pointer rounded-lg py-2.5`}
           >
             {isFetching ? "Please Wait ..." : "Login"}
             {/* Login */}

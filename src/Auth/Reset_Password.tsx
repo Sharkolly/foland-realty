@@ -5,8 +5,7 @@ import { useState, useEffect } from "react";
 import axios, { AxiosError } from "axios";
 import Logo from "../Images/logo.png";
 import { Link } from "react-router-dom";
-
-// import { toast } from "react-toastify";
+// import { Helmet} from 'react-helmet-async';
 
 const Reset_Password = () => {
   const [steps, setSteps] = useState<number>(1);
@@ -17,7 +16,6 @@ const Reset_Password = () => {
   const [isFetching, setIsFetching] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  
   const changeShowPasswordStatus = () => {
     setShowPassword(!showPassword);
   };
@@ -30,8 +28,8 @@ const Reset_Password = () => {
     try {
       setIsFetching(true);
       const { data } = await axios.post(
-        "http://localhost:3001/forgot-password",
-        // "https://foland-realty-server.onrender.com/forgot-password",
+        // "http://localhost:3001/forgot-password",
+        "https://foland-realty-server.onrender.com/forgot-password",
         { email }
       );
       setMessageResponse(data.message);
@@ -56,8 +54,8 @@ const Reset_Password = () => {
     try {
       setIsFetching(true);
       const { data } = await axios.post(
-        "http://localhost:3001/verify-code", 
-        // "https://foland-realty-server.onrender.com/verify-code",
+        // "http://localhost:3001/verify-code", 
+        "https://foland-realty-server.onrender.com/verify-code",
       
       {
         code,
@@ -83,21 +81,19 @@ const Reset_Password = () => {
     try {
       setIsFetching(true);
       const { data } = await axios.post(
-        "http://localhost:3001/reset-password",
-        // "https://foland-realty-server.onrender.com/reset-password",
+        // "http://localhost:3001/reset-password",
+        "https://foland-realty-server.onrender.com/reset-password",
         {
           newPassword,
           email
         }
       );
       setMessageResponse(data.message);
-
       location.replace("/login");
     } catch (error) {
       const axiosError = error as AxiosError<{ message?: string }>;
       const errorMessage =
         axiosError.response?.data?.message || "An unexpected error occurred.";
-      // toast.error(errorMessage);
       setMessageResponse(errorMessage);
     } finally {
       setIsFetching(false);
@@ -114,6 +110,11 @@ const Reset_Password = () => {
 
   return (
     <div className="w-[80%] mx-auto max-md:w-[85%]">
+       {/* <Helmet> */}
+        {/* <title>Reset Password - Foland Realty</title> */}
+        {/* <meta name="description" content="Learn more about Foland Realty, our mission, and how we help you find and manage rental properties." /> */}
+        {/* <meta name="keywords" content="about Foland Realty, real estate company, rental management, property leasing" /> */}
+      {/* </Helmet> */}
       <div className="flex justify-center">
         <img src={Logo} className="scale-[.6]" alt="Foland Realty" />
       </div>
