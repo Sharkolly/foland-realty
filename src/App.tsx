@@ -13,9 +13,10 @@ import Reset_Password from "./Auth/Reset_Password";
 import ProtectedRoute from "./Protected_Route/ProtectedRoute";
 import Admin from "./Admin/Admin";
 import NoAuth from "./Protected_Route/NoAuth";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Error from "./Error/Error";
+import ScrollProgressBar from "./Components/ProgressBar";
 
 // import { useContextStore } from "./Store/Context";
 
@@ -24,7 +25,6 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
-
         <Route
           path="/login"
           element={
@@ -73,6 +73,7 @@ function App() {
 
   return (
     <>
+    <ScrollProgressBar/>
       <RouterProvider router={router} />
       <ToastContainer />
     </>

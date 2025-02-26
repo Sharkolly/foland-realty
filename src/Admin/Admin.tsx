@@ -20,7 +20,7 @@ const Admin = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="h-[2000px]">
       Home Welcome to `Admin Page
       <div className="mt-4">
 
