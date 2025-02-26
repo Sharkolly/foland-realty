@@ -11,5 +11,23 @@ body {
 }
 
 .bg-linear-gradient {
-  background: linear-gradient(to left, rgba(3, 3, 3, 0.1), rgba(3, 3, 3, 0.1));
+  background: linear-gradient(to left, rgba(3, 3, 3, 0.3), rgba(3, 3, 3, 0.3));
+}
+
+
+.animation-subscribe-modal {
+  animation-name: subscribe;
+  animation-timing-function: linear;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-delay: 0s
+}
+
+@keyframes subscribe {
+  0% {
+    transform: translateY(30vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

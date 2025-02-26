@@ -28,8 +28,8 @@ const Reset_Password = () => {
     try {
       setIsFetching(true);
       const { data } = await axios.post(
-        // "http://localhost:3001/forgot-password",
-        "https://foland-realty-server.onrender.com/forgot-password",
+        "http://localhost:3001/forgot-password",
+        // "https://foland-realty-server.onrender.com/forgot-password",
         { email }
       );
       setMessageResponse(data.message);

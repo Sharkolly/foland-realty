@@ -59,8 +59,8 @@ const Signup = () => {
 try {
   setIsFetching(true);
   const sendData = await axios.post(
-    // "http://localhost:3001/signup",
-    "https://foland-realty-server.onrender.com/signup",
+    "http://localhost:3001/signup",
+    // "https://foland-realty-server.onrender.com/signup",
     formData
   );
   const { data } = await sendData;
@@ -70,10 +70,10 @@ try {
   }, 4000);
   if (data.token) {
     const { data: response } = await axios.get(
-      // "http://localhost:3001/token-verify",
-      // {
-      "https://foland-realty-server.onrender.com/token-verify",
+      "http://localhost:3001/token-verify",
       {
+      // "https://foland-realty-server.onrender.com/token-verify",
+      // {
         headers: {
           Authorization: `${data.token}`,
         },
