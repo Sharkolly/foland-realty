@@ -19,7 +19,7 @@ const Nav = () => {
           <RxHamburgerMenu className="text-navy-blue text-3xl" />
         </div>
         {/* <div className="w-full "> */}
-          <ul className="flex justify-center gap-10 max-md:flex-col max-md:bg-blue-400 max-md:fixed max-md:top-0 max-md:z-[99] max-md:w-[50%] max-md:right-0 max-md:pl-12 max-md:pt-16 max-md:gap-12 max-md:hidden">
+          <ul className="flex justify-center gap-10 max-md:flex-col max-md:bg-blue-400 max-lg:gap-6 max-md:fixed max-md:top-0 max-md:z-[99] max-md:w-[50%] max-md:right-0 max-md:pl-12 max-md:pt-16 max-md:gap-12 max-md:hidden">
             <li>
               <NavLink
                 className={({ isActive }) => (isActive ? "font-semibold" : "")}

@@ -4,7 +4,6 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Home from "./Pages/Home/Home";
 import About from "./Pages/About";
 import LayoutAuth from "./Auth/LayoutAuth";
 import Login from "./Auth/Login";
@@ -18,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Error from "./Error/Error";
 import ScrollProgressBar from "./Components/ProgressBar";
 import LayoutPages from "./Static/LayoutPages";
+import HomeLayout from "./Pages/Home/HomeLayout";
 
 // import { useContextStore } from "./Store/Context";
 
@@ -66,7 +66,7 @@ function App() {
           }
         />
         <Route path="/" element={<LayoutPages />}>
-          <Route index  element={<Home />} />
+          <Route index  element={<HomeLayout />} />
           <Route path="about" element={<About />} />
           <Route path="*" element={<Error />} />
         </Route>

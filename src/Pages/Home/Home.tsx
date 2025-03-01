@@ -101,7 +101,7 @@ const Home = () => {
   ];
 
   return (
-    <div>
+    <div className="">
       <Carousel
         swipeable={false}
         draggable={false}
@@ -123,7 +123,7 @@ const Home = () => {
         {slideShowDetails.map((slide, index) => (
           <div
             key={index}
-            className="bg-cover bg-center  w-full relative"
+            className="bg-cover bg-center w-full relative"
             style={{
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(${slide.image})`,
             }}
@@ -131,10 +131,10 @@ const Home = () => {
             <div className="w-10/12 mx-auto max-md:w-[90%]">
               <div className="flex flex-col pt-16 max-md:pt-8 pb-8 gap-2">
                 <div className="w-full flex flex-col gap-3">
-                  <h1 className="text-white w-[62%] text-[3.5em] leading-tight tracking-wide font-bold pb-3 max-md:w-full max-md:text-[2.7em]">
+                  <h1 className="text-white w-[63%] text-[3.5em] leading-tight tracking-wide font-bold pb-3 max-lg:w-full max-lg:text-[3em] max-md:text-[2.7em]">
                     {slide.title}
                   </h1>
-                  <p className="text-white w-[47%] text-lg opacity-80 font-light max-md:w-full max-md:text-[.99em]">
+                  <p className="text-white w-[54%] text-lg opacity font-light max-lg:w-full max-md:text-[.99em]">
                     {slide.description}
                   </p>
 
@@ -144,43 +144,43 @@ const Home = () => {
                     </button>
                   </div>
 
-                  <div className="mt-3 max-md:mt-6 max-md:">
+                  <div className="mt-3 max-md:mt-6 max-lg:mt-9">
                     <div className=" flex w-full ">
-                      <p className="py-4 bg-white px-9 rounded-tl-md font-bold border-b-4 border-navy-blue text-navy-blue max-md:px-6">
+                      <p className="py-4 bg-white px-9 rounded-tl-md font-bold border-b-4 border-navy-blue text-navy-blue max-lg:px-6">
                         Rent
                       </p>
-                      <p className="py-4 bg-white border-b-1 border-blue px-9 text-navy-blue max-md:px-6">
+                      <p className="py-4 bg-white border-b-1 border-blue px-9 text-navy-blue max-lg:px-6">
                         Buy
                       </p>
-                      <p className="py-4 bg-white border-b-1 border-blue px-9 rounded-tr-md text-navy-blue max-md:px-6">
+                      <p className="py-4 bg-white border-b-1 border-blue px-9 rounded-tr-md text-navy-blue max-lg:px-6">
                         Sell
                       </p>
                     </div>
 
-                    <div className="flex max-md:flex-col">
-                      <div className="bg-white py-4 border-none rounded-bl-lg px-8 max-md:px-6 max-md:rounded-bl-none max-md:rounded-tr-lg">
-                        <p className="opacity-80">Location</p>
-                        <h3 className="text-lg font-bold max-md:text-[1.1em]">Barcelona, Spain</h3>
+                    <div className="flex max-lg:flex-col">
+                      <div className="bg-white py-4 border-none rounded-bl-lg px-8 max-lg:px-6 max-lg:rounded-bl-none max-lg:rounded-tr-lg">
+                        <p className="opacity-80 text-lg">Location</p>
+                        <h3 className="text-lg font-bold max-md:text-[1.1em] max-lg:text-[1.5em]">Barcelona, Spain</h3>
                       </div>
 
                       <div className="flex items-center bg-white justify-center">
-                        <div className="w-[2px] h-[45px] bg-slate-300 rounded-lg max-md:w-full max-md:h-[2px]"></div>
+                        <div className="w-[2px] h-[45px] bg-slate-300 rounded-lg max-lg:w-full max-lg:h-[2px]"></div>
                       </div>
 
-                      <div className="bg-white border-none py-4 px-8 max-md:w-full max-md:px-6">
-                        <p className="opacity-80">When</p>
-                        <h3 className="text-lg font-bold max-md:w-full max-md:text-[1.1em]">
+                      <div className="bg-white border-none py-4 px-8 max-lg:w-full max-lg:px-6">
+                        <p className="opacity-80 text-lg">When</p>
+                        <h3 className="text-lg font-bold max-lg:w-full max-lg:text-[1.7em] max-md:text-[1.1em]">
                           Select Move-In Date{" "}
                           <input type="date" name="" id="" />{" "}
                         </h3>
                       </div>
                       <div className="flex items-center bg-white justify-center">
-                        <div className="w-[2px] h-[45px] bg-slate-300 rounded-lg max-md:w-full max-md:h-[2px]"></div>
+                        <div className="w-[2px] h-[45px] bg-slate-300 rounded-lg max-lg:w-full max-lg:h-[2px]"></div>
                       </div>
 
-                      <div className="bg-white flex  border-none py-4 px-8 rounded-tr-lg rounded-br-lg max-md:rounded-tr-none max-md:rounded-b-lg max-md:px-6">
-                        <button className="bg-navy-blue text-white px-5 py-2 rounded-md">
-                          <Link to="/signup">Browse Properties</Link>
+                      <div className="bg-white flex  border-none py-4 px-8 rounded-tr-lg rounded-br-lg max-lg:rounded-tr-none max-lg:rounded-b-lg max-lg:px-6">
+                        <button className="bg-navy-blue text-white px-5 py-2 rounded-lg">
+                          <Link to="/prpperties">Browse Properties</Link>
                         </button>
                       </div>
                     </div>
@@ -226,11 +226,11 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="bg-white absolute w-[26%] top-[120px] px-8 py-6 rounded-md right-[80px] max-md:static max-md:w-[100%] max-md:scale-[.8]">
+            <div className="bg-white absolute w-[26%] top-[120px] px-8 py-6 rounded-md right-[80px] max-lg:px-16 max-md:px-6 max-lg:static max-lg:w-[100%] max-md:scale-[1]">
               <div className="flex gap-4">
                 <img
                   src={slide.clientImage}
-                  className="w-[100px] h-[100px]"
+                  className="w-[100px] h-[100px] max-lg:w-[75px] max-lg:h-[75px] max-md:w-[60px] max-lg:h-[60px]"
                   alt="client-image"
                 />
                 <div className="flex flex-col gap-1">
