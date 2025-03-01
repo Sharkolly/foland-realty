@@ -1,4 +1,4 @@
-import Layout from "../Auth/Layout";
+import Layout from "../Auth/LayoutAuth";
 import Login from "../Auth/Login";
 import { useContextStore } from "../Store/Context";
 

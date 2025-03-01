@@ -4,9 +4,9 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Home from "./Pages/Home";
+import Home from "./Pages/Home/Home";
 import About from "./Pages/About";
-import Layout from "./Auth/Layout";
+import LayoutAuth from "./Auth/LayoutAuth";
 import Login from "./Auth/Login";
 import Signup from "./Auth/Signup";
 import Reset_Password from "./Auth/Reset_Password";
@@ -17,6 +17,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Error from "./Error/Error";
 import ScrollProgressBar from "./Components/ProgressBar";
+import LayoutPages from "./Static/LayoutPages";
 
 // import { useContextStore } from "./Store/Context";
 
@@ -24,14 +25,14 @@ function App() {
   // const { isLoggedIn } = useContextStore();
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/">
+      <>
         <Route
           path="/login"
           element={
             <NoAuth>
-              <Layout>
+              <LayoutAuth>
                 <Login />
-              </Layout>
+              </LayoutAuth>
             </NoAuth>
           }
         />
@@ -39,9 +40,9 @@ function App() {
           path="/signup"
           element={
             <NoAuth>
-              <Layout>
+              <LayoutAuth>
                 <Signup />
-              </Layout>
+              </LayoutAuth>
             </NoAuth>
           }
         />
@@ -49,9 +50,9 @@ function App() {
           path="/reset-password"
           element={
             <NoAuth>
-              <Layout>
+              <LayoutAuth>
                 <Reset_Password />
-              </Layout>
+              </LayoutAuth>
             </NoAuth>
           }
         />
@@ -64,16 +65,18 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route index element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<Error />} />
-      </Route>
+        <Route path="/" element={<LayoutPages />}>
+          <Route index  element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="*" element={<Error />} />
+        </Route>
+      </>
     )
   );
 
   return (
     <>
-    <ScrollProgressBar/>
+      <ScrollProgressBar />
       <RouterProvider router={router} />
       <ToastContainer />
     </>

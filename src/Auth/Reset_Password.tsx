@@ -121,7 +121,7 @@ const Reset_Password = () => {
       {steps === 1 && (
         <div>
           <h1 className=" text-black font-bold text-2xl mb-8">
-            <span className="text-blue-600"> Forgot Password</span>
+            <span className="text-navy-blue"> Forgot Password</span>
           </h1>
 
           <form
@@ -139,7 +139,7 @@ const Reset_Password = () => {
               />
             </div>
 
-            <div className='text-right text-blue-800 '>
+            <div className='text-right text-navy-blue '>
               <Link to='/login'>Go back</Link>
             </div>
             <p
@@ -156,7 +156,7 @@ const Reset_Password = () => {
               <button
                 type="submit"
                 disabled={isFetching ? true : false}
-                className="cursor-pointer w-full hover:font-bold bg-blue-800 text-white px-8 pointer rounded-lg py-2.5"
+                className="cursor-pointer w-full hover:font-bold bg-navy-blue text-white px-8 pointer rounded-lg py-2.5"
               >
                 {isFetching ? "Please Wait ..." : "Send Code"}
               </button>
@@ -167,7 +167,7 @@ const Reset_Password = () => {
       {steps === 2 && (
         <div>
           <h1 className=" text-black font-bold text-2xl mb-8">
-            <span className="text-blue-600"> Verify Code</span>
+            <span className="text-navy-blue"> Verify Code</span>
           </h1>
 
           <form className="flex flex-col gap-6" onSubmit={(e) => verifyCode(e)}>
@@ -195,7 +195,7 @@ const Reset_Password = () => {
               <button
                 disabled={isFetching ? true : false}
                 type="submit"
-                className="cursor-pointer w-full hover:font-bold bg-blue-800 text-white px-8 pointer rounded-lg py-2.5"
+                className="cursor-pointer w-full hover:font-bold bg-navy-blue text-white px-8 pointer rounded-lg py-2.5"
               >
                 {isFetching ? "Please Wait ..." : "Verify Code"}
               </button>
@@ -207,7 +207,7 @@ const Reset_Password = () => {
       {steps === 3 && (
         <div>
           <h1 className=" text-black font-bold text-2xl mb-8">
-            <span className="text-blue-600"> Reset Password</span>
+            <span className="text-navy-blue"> Reset Password</span>
           </h1>
           <form
             className="flex flex-col gap-6"
@@ -216,7 +216,7 @@ const Reset_Password = () => {
             <div className="relative">
               <input
                 // className="w-full outline-none text-black pl-3 h-[2.5em] border border-gray-400 rounded-md"
-                   className="w-full h-[2.5em] outline-none text-black pl-3 border border-gray-400 rounded-md"
+                   className="w-full h-[2.5em] outline-none text-navy-blue pl-3 border border-gray-400 rounded-md"
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter new password"
                 value={newPassword}
@@ -225,12 +225,12 @@ const Reset_Password = () => {
               {showPassword ? (
               <IoEyeOffSharp
                 onClick={changeShowPasswordStatus}
-                className="absolute top-[50%] translate-y-[-50%] text-xl  text-black right-[20px] z-[10] max-md:right-[15px]"
+                className="absolute top-[50%] translate-y-[-50%] text-xl  text-navy-blue right-[20px] z-[10] max-md:right-[15px]"
               />
             ) : (
               <MdRemoveRedEye
                 onClick={changeShowPasswordStatus}
-                className="absolute top-[50%] translate-y-[-50%] text-xl  text-black right-[20px] z-[10] max-md:right-[15px] "
+                className="absolute top-[50%] translate-y-[-50%] text-xl  text-navy-blue right-[20px] z-[10] max-md:right-[15px] "
               />
             )}
             </div>
@@ -248,7 +248,7 @@ const Reset_Password = () => {
             <div className="flex items-center justify-center w-full">
               <button
                 disabled={isFetching ? true : false}
-                className="cursor-pointer w-full hover:font-bold bg-blue-800 text-white px-8 pointer rounded-lg py-2.5"
+                className="cursor-pointer w-full hover:font-bold bg-navy-blue text-white px-8 pointer rounded-lg py-2.5"
                 type="submit"
               >
                 {isFetching ? "Please Wait ..." : "Reset Password"}

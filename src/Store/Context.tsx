@@ -2,8 +2,10 @@ import { createContext, useState, useContext } from "react";
 import App from "../App";
 
 type UserDetailsType = {
-  isLoggedIn: boolean | null;
-  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean | null>>;
+  isLoggedIn: string | null;
+  // isLoggedIn: boolean | null;
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<string | null>>;
+  // setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean | null>>;
   token: string | null;
   setToken: React.Dispatch<React.SetStateAction<string | null>>;
   email: string;
@@ -23,9 +25,12 @@ export const UserDetails = createContext<UserDetailsType | undefined>(
 );
 
 const Context = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(
-    localStorage.getItem("isLoggedIn") === "true"
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("isLoggedIn")
   );
+  // const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(
+  //   localStorage.getItem("isLoggedIn") === "true"
+  // );
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [profilePic, setProfilePic] = useState<File | null>(null);

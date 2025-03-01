@@ -84,7 +84,7 @@ const Login = () => {
         <img src={Logo} className="scale-[.6]" alt="Foland Realty" />
       </div>
       <h1 className="text-center text-black font-bold text-2xl mb-8">
-        Login to<span className="text-blue-600"> Foland Realty</span>
+        Login to<span className="text-navy-blue"> Foland Realty</span>
       </h1>
 
       <form className="flex flex-col gap-6" onSubmit={(e) => formSubmit(e)}>
@@ -101,7 +101,7 @@ const Login = () => {
         <div>
           <div className="relative">
             <input
-              className="w-full h-[2.5em] outline-none text-black pl-3 border border-gray-400 rounded-md"
+              className="w-full h-[2.5em] outline-none text-navy-blue pl-3 border border-gray-400 rounded-md"
               placeholder="Password"
               name="password"
               onChange={(e) => passwordOnchangeInput(e)}
@@ -110,12 +110,12 @@ const Login = () => {
             {showPassword ? (
               <IoEyeOffSharp
                 onClick={changeShowPasswordStatus}
-                className="absolute top-[50%] translate-y-[-50%] text-xl  text-black right-[20px] z-[10] max-md:right-[15px]"
+                className="absolute top-[50%] translate-y-[-50%] text-xl  text-navy-blue right-[20px] z-[10] max-md:right-[15px]"
               />
             ) : (
               <MdRemoveRedEye
                 onClick={changeShowPasswordStatus}
-                className="absolute top-[50%] translate-y-[-50%] text-xl  text-black right-[20px] z-[10] max-md:right-[15px] "
+                className="absolute top-[50%] translate-y-[-50%] text-xl text-navy-blue right-[20px] z-[10] max-md:right-[15px] "
               />
             )}
           </div>
@@ -123,7 +123,7 @@ const Login = () => {
 
         <div className="flex justify-between">
           <span className="spacing-4 font-semibold">No account yet?</span>
-          <NavLink className="font-bold text-right text-blue-500" to="/signup">
+          <NavLink className="font-bold text-right text-blue-900" to="/signup">
             {" "}
             Sign Up
           </NavLink>
@@ -132,7 +132,7 @@ const Login = () => {
         <div className="w-full text-">
           <Link
             to="/reset-password"
-            className="text-blue-500 text-right font-bold"
+            className="text-blue-900 text-right font-bold"
           >
             {" "}
             Forgot Password
@@ -153,7 +153,7 @@ const Login = () => {
           
             className={`${
               isFetching ? "opacity-[.6]" : ""
-            } cursor-pointer w-full hover:font-bold bg-blue-800 text-white px-8 pointer rounded-lg py-2.5`}
+            } cursor-pointer w-full hover:font-bold bg-navy-blue text-white px-8 pointer rounded-lg py-2.5`}
           >
             {isFetching ? "Please Wait ..." : "Login"}
             {/* Login */}

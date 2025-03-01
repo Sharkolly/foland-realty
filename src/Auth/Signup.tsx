@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import axios, { AxiosError } from "axios";
 import { useContextStore } from "../Store/Context";
 import { toast } from "react-toastify";
-import Logo from "../Images/logo.png";
+import Logo from "../Images/1-removebg-preview.png";
 // import { Helmet} from 'react-helmet-async';
 
 const Signup = () => {
@@ -147,7 +147,7 @@ try {
       </div>
       <div className="">
         <h1 className="text-center  mt-0 font-bold text-2xl mb-9 max-md:mb-6">
-          Sign Up to<span className="text-blue-600"> Foland Realty</span>
+          Sign Up to<span className="text-navy-blue"> Foland Realty</span>
         </h1>
       </div>
       <form className="flex flex-col gap-6" onSubmit={(e) => formSubmit(e)}>
@@ -172,7 +172,7 @@ try {
         </div>
         <div>
           <input
-            className="w-full outline-none text-black pl-3 h-[2.5em] border border-gray-400 rounded-md"
+            className="w-full outline-none text-navy-blue pl-3 h-[2.5em] border border-gray-400 rounded-md"
             type="email"
             name="email"
             value={email.toLowerCase()}
@@ -185,7 +185,7 @@ try {
         <div>
           <div className="relative">
             <input
-              className="w-full h-[2.5em] outline-none text-black pl-3 border border-gray-400 rounded-md"
+              className="w-full h-[2.5em] outline-none text-navy-blue pl-3 border border-gray-400 rounded-md"
               placeholder="Password"
               name="password"
               onChange={(e) => passwordOnchangeInput(e)}
@@ -194,12 +194,12 @@ try {
             {showPassword ? (
               <IoEyeOffSharp
                 onClick={changeShowPasswordStatus}
-                className="absolute top-[50%] translate-y-[-50%] text-xl  text-black right-[20px] z-[10] max-md:right-[15px]"
+                className="absolute top-[50%] translate-y-[-50%] text-xl  text-navy-blue right-[20px] z-[10] max-md:right-[15px]"
               />
             ) : (
               <MdRemoveRedEye
                 onClick={changeShowPasswordStatus}
-                className="absolute top-[50%] translate-y-[-50%] text-xl  text-black right-[20px] z-[10] max-md:right-[15px] "
+                className="absolute top-[50%] translate-y-[-50%] text-xl  text-navy-blue right-[20px] z-[10] max-md:right-[15px] "
               />
             )}
           </div>
@@ -234,7 +234,7 @@ try {
               />
             </div>
             <div className="flex gap-2 max-md:gap-1">
-              <label htmlFor="Landlord" className="text-blue-800">
+              <label htmlFor="Landlord" className="text-blue-900">
                 Landlord
               </label>
               <input
@@ -249,7 +249,7 @@ try {
         </div>
         <div className="flex justify-between">
           <span className="spacing-4">Already have an account?</span>
-          <NavLink className="font-bold text-right text-blue-500" to="/login">
+          <NavLink className="font-bold text-right text-navy-blue" to="/login">
             {" "}
             Login
           </NavLink>

@@ -1,0 +1,285 @@
+// import { NavLink } from "react-router-dom";
+// import Testing from "../Custom/Testing";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import Image1 from "../../Images/Modern house design in Nigeria 🇳🇬.jpg";
+import Image1Man from "../../Images/man-in-home-img.png";
+import Image2 from "../../Images/Nigeria’s luxury home markets soared in 2021, record increase in sale prices.jpg";
+import Image3 from "../../Images/Beautiful Box Type Kerala House Design 3 Storey House Design, House  FEE.jpg";
+import Image4 from "../../Images/Home 🇳🇬.jpeg";
+import Image5 from "../../Images/3ee98586-f578-4dfe-9f7a-99578c6279cd.jpeg";
+import Apostrophe from "../../Images/icons/home-testimonial.svg";
+import Renters from "../../Images/icons/home-icon-50k.svg";
+import Properties from "../../Images/icons/home-icon-10k.svg";
+import { Link } from "react-router-dom";
+
+const Home = () => {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
+      // slidesToSlide: 4 // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 764 },
+      items: 1,
+      // slidesToSlide: 2 // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 764, min: 0 },
+      items: 1,
+      // slidesToSlide: 1 // optional, default to 1.
+    },
+  };
+
+  const slideShowDetails = [
+    {
+      image: Image1,
+      title: "Buy, Rent or Sell Your Property Easily",
+      description:
+        "Skip the complicated process and high fees. Buy, rent, or sell properties effortlessly with our trusted platform—quick, secure, and commission-free.",
+      clientSay:
+        "I loved how smooth the move was, and finally got the house we wanted.",
+      clientName: "Manuel Villa",
+      clientPurchaseStatus: "Renter",
+      savedUpTo: "$1,500",
+      processedTime: "-24hours",
+      clientImage: Image1Man,
+    },
+    {
+      image: Image2,
+      title: "Buy Your Dream Home with Confidence",
+      description:
+        "Searching for the perfect house? Our platform connects you to top listings with transparent pricing, secure transactions, and zero hassle!",
+      clientSay:
+        "I finally found the perfect home at the best price! The process was seamless and secure.",
+      clientName: "David Johnson",
+      clientPurchaseStatus: "Home Buyer",
+      savedUpTo: "$3,500",
+      processedTime: "-72 hours",
+      clientImage: Image1Man,
+    },
+    {
+      image: Image3,
+      title: "Hassle-Free Renting for Your Perfect Home",
+      description:
+        "Find and rent your ideal home with ease! Browse verified listings, connect with trusted landlords, and move in quickly—no hidden fees, no stress.",
+      clientSay:
+        "Renting has never been this simple! I found a great apartment and moved in within days.",
+      clientName: "Aisha Bello",
+      clientPurchaseStatus: "Renter",
+      savedUpTo: "$1,500",
+      processedTime: "-24 hours",
+      clientImage: Image1Man,
+    },
+    {
+      image: Image4,
+      title: "Invest in Land, Secure Your Future",
+      description:
+        "Buy verified land with peace of mind! Whether for investment or development, our platform ensures safe, reliable, and fast land acquisitions.",
+      clientSay:
+        "I secured a plot of land in a prime location without any hidden costs—100% legit!",
+      clientName: "Samuel Chukwu",
+      clientPurchaseStatus: "Land Buyer",
+      savedUpTo: "$5,100",
+      processedTime: "-5 days",
+      clientImage: Image1Man,
+    },
+    {
+      image: Image5,
+      title: "Your One-Stop Real Estate Marketplace",
+      description:
+        "From buying and renting homes to acquiring land and commercial properties, Foland Realty makes real estate transactions smooth, fast, and stress-free!",
+      clientSay:
+        "Whether buying, selling, or renting, Foland Realty has made my real estate journey effortless!",
+      clientName: "Sandra Williams",
+      clientPurchaseStatus: "Seller & Buyer",
+      savedUpTo: "$2,600",
+      processedTime: "-1 Week",
+      clientImage: Image1Man,
+    },
+  ];
+
+  return (
+    <div>
+      <Carousel
+        swipeable={false}
+        draggable={false}
+        showDots={false}
+        responsive={responsive}
+        // ssr={true} // means to render carousel on server-side.
+        infinite={true}
+        autoPlay={true}
+        autoPlaySpeed={4000}
+        keyBoardControl={true}
+        customTransition="all .5"
+        transitionDuration={500}
+        containerClass="carousel-container"
+        removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
+        // deviceType={['desktop',"tablet", "mobile" ]}
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px"
+      >
+        {slideShowDetails.map((slide, index) => (
+          <div
+            key={index}
+            className="bg-cover bg-center  w-full relative"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(${slide.image})`,
+            }}
+          >
+            <div className="w-10/12 mx-auto max-md:w-[90%]">
+              <div className="flex flex-col pt-16 max-md:pt-8 pb-8 gap-2">
+                <div className="w-full flex flex-col gap-3">
+                  <h1 className="text-white w-[62%] text-[3.5em] leading-tight tracking-wide font-bold pb-3 max-md:w-full max-md:text-[2.7em]">
+                    {slide.title}
+                  </h1>
+                  <p className="text-white w-[47%] text-lg opacity-80 font-light max-md:w-full max-md:text-[.99em]">
+                    {slide.description}
+                  </p>
+
+                  <div className='hidden max-md:block'>
+                    <button className="bg-semi-navy-blue text-white px-5 py-2 rounded-md mt-3">
+                      <Link to="/view-properties">View Properties</Link>
+                    </button>
+                  </div>
+
+                  <div className="mt-3 max-md:mt-6 max-md:">
+                    <div className=" flex w-full ">
+                      <p className="py-4 bg-white px-9 rounded-tl-md font-bold border-b-4 border-navy-blue text-navy-blue max-md:px-6">
+                        Rent
+                      </p>
+                      <p className="py-4 bg-white border-b-1 border-blue px-9 text-navy-blue max-md:px-6">
+                        Buy
+                      </p>
+                      <p className="py-4 bg-white border-b-1 border-blue px-9 rounded-tr-md text-navy-blue max-md:px-6">
+                        Sell
+                      </p>
+                    </div>
+
+                    <div className="flex max-md:flex-col">
+                      <div className="bg-white py-4 border-none rounded-bl-lg px-8 max-md:px-6 max-md:rounded-bl-none max-md:rounded-tr-lg">
+                        <p className="opacity-80">Location</p>
+                        <h3 className="text-lg font-bold max-md:text-[1.1em]">Barcelona, Spain</h3>
+                      </div>
+
+                      <div className="flex items-center bg-white justify-center">
+                        <div className="w-[2px] h-[45px] bg-slate-300 rounded-lg max-md:w-full max-md:h-[2px]"></div>
+                      </div>
+
+                      <div className="bg-white border-none py-4 px-8 max-md:w-full max-md:px-6">
+                        <p className="opacity-80">When</p>
+                        <h3 className="text-lg font-bold max-md:w-full max-md:text-[1.1em]">
+                          Select Move-In Date{" "}
+                          <input type="date" name="" id="" />{" "}
+                        </h3>
+                      </div>
+                      <div className="flex items-center bg-white justify-center">
+                        <div className="w-[2px] h-[45px] bg-slate-300 rounded-lg max-md:w-full max-md:h-[2px]"></div>
+                      </div>
+
+                      <div className="bg-white flex  border-none py-4 px-8 rounded-tr-lg rounded-br-lg max-md:rounded-tr-none max-md:rounded-b-lg max-md:px-6">
+                        <button className="bg-navy-blue text-white px-5 py-2 rounded-md">
+                          <Link to="/signup">Browse Properties</Link>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-24 mt-8 max-md:flex-col max-md:gap-16">
+                    <div className="flex flex-col gap-4 ">
+                      <img
+                        src={Renters}
+                        className="w-[60px]"
+                        alt="Renters Icon"
+                      />
+
+                      <div className=''>
+                        <h1 className="text-xl text-white opacity-90 ">
+                          50k+ Renters
+                        </h1>
+                        <p className="text-white text-lg opacity-70 max-md:text-sm max-md:w-full">
+                          Believe in our service
+                        </p>
+                      </div>
+                    </div>
+
+
+                    <div className="flex flex-col gap-4 ">
+                      <img
+                        src={Properties}
+                        className="w-[60px]"
+                        alt="Renters Icon"
+                      />
+
+                      <div className=''>
+                        <h1 className="text-xl text-white opacity-90">
+                          10k+ Properties and Houses
+                        </h1>
+                        <p className="text-white text-lg opacity-70 max-md:text-sm">
+                          Ready for Occupancy
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white absolute w-[26%] top-[120px] px-8 py-6 rounded-md right-[80px] max-md:static max-md:w-[100%] max-md:scale-[.8]">
+              <div className="flex gap-4">
+                <img
+                  src={slide.clientImage}
+                  className="w-[100px] h-[100px]"
+                  alt="client-image"
+                />
+                <div className="flex flex-col gap-1">
+                  <h1 className="text-navy-blue font-bold text-2xl tracking-wide">
+                    {slide.clientName}
+                  </h1>
+                  <p className="text-slate-700">{slide.clientPurchaseStatus}</p>
+                  <p className="text-slate-700">
+                    Moved with{" "}
+                    <span className="text-semi-navy-blue font-bold tracking-wide">
+                      Foland Realty
+                    </span>{" "}
+                  </p>
+                </div>
+              </div>
+
+              <div className="my-5 flex gap-8">
+                <img
+                  src={Apostrophe}
+                  className="w-[45px] h-[45px]"
+                  alt="Apostrophe Testimonial"
+                />
+                <div className="">
+                  <p className="leading-normal">{slide.clientSay}</p>
+                </div>
+              </div>
+
+              <div className="bg-slate-300 w-full h-[2px]"></div>
+
+              <div className="flex justify-between mt-5">
+                <div className="flex flex-col gap-2">
+                  <h1 className="text-2xl font-bold text-navy-blue">
+                    {slide.savedUpTo}
+                  </h1>
+                  <p className="text-slate-600 text-sm">Saved up to</p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h1 className="text-2xl font-bold text-navy-blue">
+                    {slide.processedTime}
+                  </h1>
+                  <p className="text-slate-600 text-sm">Process Time</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </Carousel>
+    </div>
+  );
+};
+
+export default Home;
