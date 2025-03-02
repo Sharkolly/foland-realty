@@ -2,24 +2,32 @@ import Logo from "../Images/1-removebg-preview.png";
 import { NavLink, Link } from "react-router-dom";
 import { useContextStore } from "../Store/Context";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { LiaTimesSolid } from "react-icons/lia";
+import { useState } from "react";
 
 const Nav = () => {
   const { token, isLoggedIn } = useContextStore();
-  console.log(token, isLoggedIn);
+  const [menu, setMenu] = useState(false);
+
+  const changeMenu = () => setMenu(!menu);
 
   return (
-    <nav className="flex justify-between items-center py-4 relative w-full bg-white shadow-xl ">
-      <div className="w-[90%] mx-auto flex justify-between items-center max-md:w-[95%]">
+    <nav className="flex justify-between items-center py-4  w-full bg-white shadow-xl fixed top-0 left-0 right-0 h-[80px] z-[99]">
+      <div className="w-[90%] mx-auto flex justify-between items-center max-md:w-[95%] ">
         <div className="w-[10%] max-md:w-[25%]">
           <Link to="/">
             <img src={Logo} alt="Logo" />
           </Link>
         </div>
-        <div className="hidden max-md:block">
-          <RxHamburgerMenu className="text-navy-blue text-3xl" />
+        <div className="hidden max-md:block " onClick={changeMenu}>
+          <RxHamburgerMenu className="text-navy-blue  text-3xl mr-3" />
         </div>
         {/* <div className="w-full "> */}
-          <ul className="flex justify-center gap-10 max-md:flex-col max-md:bg-blue-400 max-lg:gap-6 max-md:fixed max-md:top-0 max-md:z-[99] max-md:w-[50%] max-md:right-0 max-md:pl-12 max-md:pt-16 max-md:gap-12 max-md:hidden">
+        {menu && (
+          <ul className="flex justify-center gap-10 max-md:flex-col max-lg:gap-6 max-md:fixed max-md:top-0 max-md:z-[99] max-md:w-[60%] max-md:right-0 max-md:px-8 max-md:pt-7 max-md:gap-9 max-md:text-white max-md:bg-navy-blue  max-md:backdrop-blur-md max-md:h-[100vh] max-md:justify-start">
+            <div className="flex justify-end" onClick={changeMenu}>
+              <LiaTimesSolid className="text-3xl" />
+            </div>
             <li>
               <NavLink
                 className={({ isActive }) => (isActive ? "font-semibold" : "")}
@@ -76,14 +84,14 @@ const Nav = () => {
                 Saved Properties
               </NavLink>
             </li>
-            <li className="hidden max-md:block">
+            {/* <li className="hidden max-md:block">
               <NavLink
                 className={({ isActive }) => (isActive ? "font-semibold" : "")}
                 to="/contact"
               >
                 Profile
               </NavLink>
-            </li>
+            </li> */}
             <li className="hidden max-md:block">
               <NavLink
                 className={({ isActive }) => (isActive ? "font-semibold" : "")}
@@ -92,31 +100,43 @@ const Nav = () => {
                 Settings
               </NavLink>
             </li>
-            <li className="hidden max-md:block">
-              <NavLink
-                className={({ isActive }) => (isActive ? "font-semibold" : "")}
-                to="/contact"
-              >
-                Log Out
-              </NavLink>
-            </li>
-            <li className="hidden max-md:block">
-              <NavLink
-                className={({ isActive }) => (isActive ? "font-semibold" : "")}
-                to="/contact"
-              >
-                Login
-              </NavLink>
-            </li>
-            <li className="hidden max-md:block">
-              <NavLink
-                className={({ isActive }) => (isActive ? "font-semibold" : "")}
-                to="/contact"
-              >
-                Sign Up
-              </NavLink>
-            </li>
+            {isLoggedIn && token ? (
+              <li className="hidden max-md:block">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "font-semibold" : ""
+                  }
+                  to="/contact"
+                >
+                  Log Out
+                </NavLink>
+              </li>
+            ) : (
+              <>
+                <li className="hidden max-md:block">
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "font-semibold" : ""
+                    }
+                    to="/login"
+                  >
+                    Login
+                  </NavLink>
+                </li>
+                <li className="hidden max-md:block">
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? "font-semibold" : ""
+                    }
+                    to="/signup"
+                  >
+                    Sign Up
+                  </NavLink>
+                </li>
+              </>
+            )}
           </ul>
+        )}
         {/* </div> */}
         <div className="flex gap-4 max-md:hidden">
           {isLoggedIn && token ? (
@@ -134,8 +154,6 @@ const Nav = () => {
             </>
           )}
         </div>
-
-       
       </div>
     </nav>
   );

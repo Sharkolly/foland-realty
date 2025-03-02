@@ -101,7 +101,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="">
+    <div className="mt-[80px]">
       <Carousel
         swipeable={false}
         draggable={false}

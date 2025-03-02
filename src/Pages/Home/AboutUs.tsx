@@ -42,7 +42,7 @@ const AboutUs = () => {
             <h2 className="text-semi-navy-blue text-3xl font-bold">
               The New Way To Find Your New Home
             </h2>
-            <p className="text-blue-600 z-[99] text-[.9em]  max-md:text-[.85em] max-md:text-black">
+            <p className="text-blue-600 z-[9] text-[.9em]  max-md:text-[.85em] max-md:text-black">
             Finding the perfect home has never been easier. With our seamless platform. Whether you're looking to rent, buy, or invest, we provide the tools to help you make informed decisions—without the hassle. Start your journey today and discover a smarter, faster way to find your dream home.
             </p>
             <div>
