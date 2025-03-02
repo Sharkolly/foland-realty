@@ -8,7 +8,7 @@ const LayoutPages = () => {
       {/* <div className='w-[90%] mx-auto'> */}
         <Nav />
         <Outlet />
-        {/* <Footer /> */}
+        <Footer />
       {/* </div> */}
     </div>
   );

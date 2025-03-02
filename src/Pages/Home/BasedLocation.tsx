@@ -43,42 +43,42 @@ const BasedLocation = () => {
       houseName: "Faulkner Ave",
       location: "909 Woodland St, Michigan, IN",
       beds: 4,
-      bathrooms: 4,
+      bathrooms: 3,
       squareMeters: "8x10",
-      price: "$2,095",
+      price: "$4,550",
       houseStatus: "Rent",
       RentReceivalPeriod: "year",
       image: secondHouse
     },
     {
-      houseName: "Palm Harbor",
-      location: "2699 Green Valley, Highland Lake, FL",
-      beds: 3,
+      houseName: "St. Crystal",
+      location: "210 US Highway, Highland Lake, FL",
+      beds: 4,
       bathrooms: 2,
       squareMeters: "5x7",
-      price: "$2,095",
+      price: "$2,400",
       houseStatus: "Rent",
       RentReceivalPeriod: "month",
       image: Image5
     },
     {
-      houseName: "Palm Harbor",
-      location: "2699 Green Valley, Highland Lake, FL",
-      beds: 3,
-      bathrooms: 2,
-      squareMeters: "5x7",
-      price: "$2,095",
+      houseName: "Cove Red",
+      location: "243 Curlew Road, Palm Harbor, TX",
+      beds: 2,
+      bathrooms: 1,
+      squareMeters: "5x7.5",
+      price: "$1,500",
       houseStatus: "Rent",
       RentReceivalPeriod: "year",
       image: thirdHouse
     },
     {
-      houseName: "Palm Harbor",
+      houseName: "Tarpon Bay",
       location: "2699 Green Valley, Highland Lake, FL",
       beds: 3,
-      bathrooms: 2,
+      bathrooms: 1,
       squareMeters: "5x7",
-      price: "$2,095",
+      price: "$1,600",
       houseStatus: "Rent",
       RentReceivalPeriod: "week",
       image: Image6
@@ -127,7 +127,7 @@ const BasedLocation = () => {
             />
           </div>
         </div>
-      <div className="flex justify-between gap-10 mt-10 flex-wrap">
+      <div className="flex justify-between gap-10 mt-10 flex-wrap max-lg:flex-col">
         {housesProperty.map((house, index) => (
           <div key={index} className="bg-white rounded-br-md rounded-bl-md basis-[410px] hover:scale-[1.02] cursor-pointer shadow-xl max-md:hover:scale-[1]">
             <div className="relative">
