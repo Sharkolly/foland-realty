@@ -129,9 +129,9 @@ const Home = () => {
             }}
           >
             <div className="w-10/12 mx-auto max-md:w-[90%]">
-              <div className="flex flex-col pt-16 max-md:pt-8 pb-8 gap-2">
+              <div className="flex flex-col pt-16 max-xl:pt-12 max-md:pt-8 pb-8 gap-2">
                 <div className="w-full flex flex-col gap-3">
-                  <h1 className="text-white w-[63%] text-[3.5em] leading-tight tracking-wide font-bold pb-3 max-lg:w-full max-lg:text-[3em] max-md:text-[2.7em]">
+                  <h1 className="text-white w-[63%] text-[3.5em] leading-tight tracking-wide font-bold pb-3 max-xl:w-[60%] max-xl:tracking-normal max-xl:text-[3em] max-lg:w-full  max-lg:text-[3em] max-md:text-[2.7em]">
                     {slide.title}
                   </h1>
                   <p className="text-white w-[54%] text-lg opacity font-light max-lg:w-full max-md:text-[.99em]">
@@ -144,7 +144,7 @@ const Home = () => {
                     </button>
                   </div>
 
-                  <div className="mt-3 max-md:mt-6 max-lg:mt-9">
+                  <div className="mt-3 max-xl:mt-12 max-md:mt-6 max-lg:mt-9">
                     <div className=" flex w-full ">
                       <p className="py-4 bg-white px-9 rounded-tl-md font-bold border-b-4 border-navy-blue text-navy-blue max-lg:px-6">
                         Rent
@@ -226,11 +226,11 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="bg-white absolute w-[26%] top-[120px] px-8 py-6 rounded-md right-[80px] max-lg:px-16 max-md:px-6 max-lg:static max-lg:w-[100%] max-md:scale-[1]">
+            <div className="bg-white absolute w-[26%] top-[120px] px-8 py-6 rounded-md right-[80px] max-xl:top-[33px] max-xl:right-[30px]  max-xl:w-[36%] max-lg:px-16 max-md:px-6 max-lg:static max-lg:w-[100%] max-md:scale-[1]">
               <div className="flex gap-4">
                 <img
                   src={slide.clientImage}
-                  className="w-[100px] h-[100px] max-lg:w-[75px] max-lg:h-[75px] max-md:w-[60px] max-lg:h-[60px]"
+                  className="w-[100px] h-[100px] max-xl:w-[80px]  max-xl:h-[80px]  max-lg:w-[75px] max-lg:h-[75px] max-md:w-[60px] max-lg:h-[60px]"
                   alt="client-image"
                 />
                 <div className="flex flex-col gap-1">

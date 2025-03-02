@@ -24,10 +24,10 @@ const ScrollProgressBar = () => {
         top: 0,
         left: 0,
         height: '4px',
-        backgroundColor: 'blue',
         width: `${scrollPercentage}%`,
         zIndex: 1000,
       }}
+      className='bg-blue-700'
     />
   );
 };
