@@ -102,7 +102,7 @@ const BasedLocation = () => {
         </div>
 
         <div className="flex justify-between items-center mt-12 max-md:mt-8 max-md:flex-col max-md:gap-3">
-          <div className=" flex  border-2 rounded-md border-navy-blue px-1 py-1 bg-low-red ">
+          <div className=" flex  border-2 rounded-md border-navy-blue px-1 py-1 bg-low-red max-md:w-full">
             <div className="flex bg-white gap-3 border-2 items-center px-5 py-3 rounded-md">
               <img src={Rent} alt="Rent Image" />
               <p className="font-bold ">Rent</p>
@@ -122,7 +122,7 @@ const BasedLocation = () => {
             <img src={Search} alt="Search Icon" />
             <input
               type="search"
-              className="border-none outline-none pl-4 pr-4 "
+              className="border-none outline-none pl-4 pr-4 max-md:pr-0 max-md:w-full"
               placeholder="Lagos"
             />
           </div>
