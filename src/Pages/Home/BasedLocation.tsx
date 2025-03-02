@@ -8,7 +8,8 @@ import thirdHouse from "../../Images/thirdHouse.png";
 import Image4 from "../../Images/Beautiful Box Type Kerala House Design 3 Storey House Design, House  FEE.jpg";
 import Image5 from "../../Images/Modern house design in Nigeria 🇳🇬.jpg";
 import Image6 from "../../Images/3ee98586-f578-4dfe-9f7a-99578c6279cd.jpeg";
-import Popular from '../../Images/icons/popular.svg';
+// import Popular from '../../Images/icons/popular.svg';
+import Popular from '../../Images/icons/popular_red.svg';
 import Love from '../../Images/icons/Favorited.svg';
 import Bed from '../../Images/icons/Bed.svg'
 import BathRoom from '../../Images/icons/Bath.svg'
