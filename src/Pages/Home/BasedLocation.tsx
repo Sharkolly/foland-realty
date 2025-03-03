@@ -170,17 +170,17 @@ const BasedLocation = () => {
                 <div className="mt-4 flex justify-between items-center opacity-[.8]">
                   <div className="flex gap-2 max-md:gap-1 items-center">
                     <img src={Bed} alt="Bed Icon" />
-                    <p className="max-md:text-[.9em]">{house.beds} Beds</p>
+                    <p className="max-md:text-[.8em]">{house.beds} Beds</p>
                   </div>
                   <div className="flex gap-2 max-md:gap-1 items-center">
                     <img src={BathRoom} alt="Bathroom Icon" />
-                    <p className="max-md:text-[.9em]">
+                    <p className="max-md:text-[.8em]">
                       {house.bathrooms} Bathrooms
                     </p>
                   </div>
-                  <div className="flex gap-2 max-md:gap-1">
+                  <div className="flex gap-2 max-md:gap-1 items-center">
                     <img src={SquareMeter} alt="Square Meteres Icons" />
-                    <p className="max-md:text-[.9em]">
+                    <p className="max-md:text-[.8em]">
                       {house.squareMeters} m
                       <span className="align-super text-sm">2</span>{" "}
                     </p>

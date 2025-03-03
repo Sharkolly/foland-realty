@@ -88,8 +88,8 @@ const Rate = () => {
         <div className="flex justify-between max-lg:flex-col max-lg:gap-7">
           <h2 className="text-4xl leading-snug font-bold">
             We make it easy for <br className="max-lg:hidden" />{" "}
-            <span className="text-blue-700 ">Tenants</span> and{" "}
-            <span className="text-blue-700">Landlords.</span>
+            <span className="text-blue-500 ">Tenants</span> and{" "}
+            <span className="text-blue-500">Landlords.</span>
           </h2>
 
           <p className="w-[34%] max-xl:w-[45%] max-lg:w-full tracking-wider leading-relaxed max-md:tracking-normal text-[1.1em] max-md:text-[.9em]">
