@@ -1,0 +1,180 @@
+import Virtual from "../../Images/icons/tour.svg";
+import bestDeal from "../../Images/icons/best-deal.svg";
+import lastDeal from "../../Images/icons/get.svg";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { useState } from "react";
+
+const Rate = () => {
+  const rateDetails = [
+    {
+      name: "Virtual home tour",
+      description:
+        "You can communicate directly with landlords and we provide you with virtual tour before you buy or rent the property.",
+      image: Virtual,
+      bgColor: "white/50",
+      textColor: "white",
+    },
+    {
+      name: "Find the best deal",
+      description:
+        "Browse thousands of properties, save your favorites and set up search alerts so you don’t miss the best home deal!",
+      image: bestDeal,
+      bgColor: "white",
+      textColor: "navy-blue",
+    },
+    {
+      name: "Get ready to apply",
+      description:
+        "Find your dream house? You just need to do a little to no effort and you can start move in to your new dream home!",
+      image: lastDeal,
+      bgColor: "semi-navy-blue",
+      textColor: "white",
+    },
+    {
+      name: "Virtual home tour",
+      description:
+        "You can communicate directly with landlords and we provide you with virtual tour before you buy or rent the property.",
+      image: Virtual,
+      bgColor: "white/50",
+      textColor: "white",
+    },
+    {
+      name: "Find the best deal",
+      description:
+        "Browse thousands of properties, save your favorites and set up search alerts so you don’t miss the best home deal!",
+      image: bestDeal,
+      bgColor: "white",
+      textColor: "navy-blue",
+    },
+    {
+      name: "Get ready to apply",
+      description:
+        "Find your dream house? You just need to do a little to no effort and you can start move in to your new dream home!",
+      image: lastDeal,
+      bgColor: "semi-navy-blue",
+      textColor: "white",
+    },
+  ];
+
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      // slidesToSlide: 4 // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 764 },
+      items: 1,
+      // slidesToSlide: 2 // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 764, min: 0 },
+      items: 1,
+      // slidesToSlide: 1 // optional, default to 1.
+    },
+  };
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Update active index when slide changes
+  const handleBeforeChange = (nextIndex: number) => {
+    setActiveIndex(nextIndex);
+  };
+
+  return (
+    <div className="bg-navy-blue text-white py-16 max-md:pt-10">
+      <div className="w-10/12 mx-auto ">
+        <div className="flex justify-between max-md:flex-col max-md:gap-7">
+          <h2 className="text-4xl leading-snug font-bold">
+            We make it easy for <br className="max-md:hidden" />{" "}
+            <span className="text-blue-700 ">Tenants</span> and{" "}
+            <span className="text-blue-700">Landlords.</span>
+          </h2>
+
+          <p className="w-[34%] max-md:w-full tracking-wider leading-relaxed text-[.9em]">
+            Whether it’s selling your current home, getting financing, or buying
+            a new home, we make it easy and efficient. The best part? you’ll
+            save a bunch of money and time with our services.
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-16 max-md:mt-4">
+        <div className="w-full  flex justify-start">
+          <div className="w-[100%] max-md:ml-0 ml-32 overflow-hidden">
+            <Carousel
+              swipeable={true}
+              draggable={true}
+              showDots={false}
+              responsive={responsive}
+              infinite={true}
+              autoPlay={true}
+              autoPlaySpeed={4000}
+              keyBoardControl={true}
+              customTransition="transform 0.5s ease-in-out"
+              transitionDuration={500}
+              containerClass="carousel-container overflow-hidden"
+              removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
+              beforeChange={handleBeforeChange}
+              //  additionalTransfrom={-30} // Track active item
+            >
+              {rateDetails.map((rate_d, index) => (
+                <div
+                  key={index}
+                  className={`w-full mx-auto flex justify-center transition-all duration-500 ${
+                    index === activeIndex
+                      ? "scale-110 opacity-100"
+                      : "scale-90 opacity-70"
+                  }`}
+                >
+                  <div
+                    className={`py-10 px-7 flex gap-5 bg-${rate_d.bgColor} rounded-md`}
+                  >
+                    <div>
+                      <img
+                        src={rate_d.image}
+                        className="w-[200px] h-[60px]"
+                        alt="home image"
+                      />
+                    </div>
+                    <div
+                      className={`text-${rate_d.textColor} flex flex-col gap-3`}
+                    >
+                      <h2 className="text-2xl font-bold">{rate_d.name}</h2>
+                      <p>{rate_d.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </Carousel>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-stroke-grey w-full h-[2px] my-16 max-md:my-10"></div>
+
+      <div className="flex w-10/12 mx-auto max-md:w-[90%] max-md:flex-col justify-center gap-16 text-center items-center max-md:gap-5">
+        <div className="flex flex-col gap-4">
+          <h2 className="text-4xl font-bold max-md:text-2xl">7.4%</h2>
+          <p className="opacity-75 text-[.9em]">Property Return Rate</p>
+        </div>
+
+        {/* <div className="w-[2px] h-[50px] bg-white max-md:w-full max-md:h-[2px]"></div> */}
+        <div className="w-[2px] h-[50px] bg-white"></div>
+        <div className="flex flex-col gap-4">
+          <h2 className="text-4xl font-bold max-md:text-2xl">3,856</h2>
+          <p className="opacity-75 text-[.9em]">Property in Sell & Rent</p>
+        </div>
+        <div className="w-[2px] h-[50px] bg-white"></div>
+        {/* <div className="w-[2px] h-[50px] bg-white max-md:w-full max-md:h-[2px]"></div> */}
+        <div className="flex flex-col gap-4">
+          <h2 className="text-4xl font-bold max-md:text-2xl">2,540</h2>
+          <p className="opacity-75 text-[.9em]">Daily Completed Transactions</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Rate;

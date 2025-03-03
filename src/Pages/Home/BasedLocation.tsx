@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Rent from "../../Images/icons/rent.svg";
 import Sell from "../../Images/icons/sel;.svg";
 import Buy from "../../Images/icons/buy.svg";
@@ -9,12 +10,11 @@ import Image4 from "../../Images/Beautiful Box Type Kerala House Design 3 Storey
 import Image5 from "../../Images/Modern house design in Nigeria 🇳🇬.jpg";
 import Image6 from "../../Images/3ee98586-f578-4dfe-9f7a-99578c6279cd.jpeg";
 // import Popular from '../../Images/icons/popular.svg';
-import Popular from '../../Images/icons/popular_red.svg';
-import Love from '../../Images/icons/Favorited.svg';
-import Bed from '../../Images/icons/Bed.svg'
-import BathRoom from '../../Images/icons/Bath.svg'
-import SquareMeter from '../../Images/icons/Square Meters.svg';
-
+import Popular from "../../Images/icons/popular_red.svg";
+import Love from "../../Images/icons/Favorited.svg";
+import Bed from "../../Images/icons/Bed.svg";
+import BathRoom from "../../Images/icons/Bath.svg";
+import SquareMeter from "../../Images/icons/Square Meters.svg";
 
 const BasedLocation = () => {
   const housesProperty = [
@@ -27,7 +27,7 @@ const BasedLocation = () => {
       price: "$2,095",
       houseStatus: "Rent",
       RentReceivalPeriod: "month",
-      image: firstHouse
+      image: firstHouse,
     },
     {
       houseName: "Beverly Springfield",
@@ -38,7 +38,7 @@ const BasedLocation = () => {
       price: "$2,700",
       houseStatus: "Rent",
       RentReceivalPeriod: "week",
-      image: Image4
+      image: Image4,
     },
     {
       houseName: "Faulkner Ave",
@@ -49,7 +49,7 @@ const BasedLocation = () => {
       price: "$4,550",
       houseStatus: "Rent",
       RentReceivalPeriod: "year",
-      image: secondHouse
+      image: secondHouse,
     },
     {
       houseName: "St. Crystal",
@@ -60,7 +60,7 @@ const BasedLocation = () => {
       price: "$2,400",
       houseStatus: "Rent",
       RentReceivalPeriod: "month",
-      image: Image5
+      image: Image5,
     },
     {
       houseName: "Cove Red",
@@ -71,7 +71,7 @@ const BasedLocation = () => {
       price: "$1,500",
       houseStatus: "Rent",
       RentReceivalPeriod: "year",
-      image: thirdHouse
+      image: thirdHouse,
     },
     {
       houseName: "Tarpon Bay",
@@ -82,7 +82,7 @@ const BasedLocation = () => {
       price: "$1,600",
       houseStatus: "Rent",
       RentReceivalPeriod: "week",
-      image: Image6
+      image: Image6,
     },
   ];
   return (
@@ -90,7 +90,7 @@ const BasedLocation = () => {
       style={{
         backgroundImage: "linear-gradient(to bottom, #ffffff, #F0EFFB)",
       }}
-      className=" w-full mt-28"
+      className=" w-full mt-16 py-12"
     >
       <div className="w-10/12 mx-auto">
         <div className="text-center flex flex-col gap-2 ">
@@ -118,8 +118,10 @@ const BasedLocation = () => {
             </div>
           </div>
 
-          <div className="flex border-2 rounded-md border-navy-blue px-4 py-4 bg-low-red 
-          max-md:w-full">
+          <div
+            className="flex border-2 rounded-md border-navy-blue px-4 py-4 bg-low-red 
+          max-md:w-full"
+          >
             <img src={Search} alt="Search Icon" />
             <input
               type="search"
@@ -128,46 +130,73 @@ const BasedLocation = () => {
             />
           </div>
         </div>
-      <div className="flex justify-between gap-10 mt-10 flex-wrap max-lg:flex-col">
-        {housesProperty.map((house, index) => (
-          <div key={index} className="bg-white rounded-br-md rounded-bl-md basis-[410px] hover:scale-[1.02] cursor-pointer shadow-xl max-md:hover:scale-[1]">
-            <div className="relative">
-                <img src={house.image} className="h-[200px] object-cover object-center w-full rounded-tr-md rounded-tl-md opacity-[.80]" alt="firstHouse Image" />
-                <img src={Popular} className='absolute -bottom-[22px] -left-[7px]' alt="Popular Icon" />
-            </div>
-
-            <div className="px-9 my-6 max-md:px-4">
-              <div className="flex justify-between items-center">
-                <h2 className="font-bold text-2xl ">{house.price}<span className="text-[.7em] font-normal opacity-50 ">/{house.RentReceivalPeriod}</span>
-                </h2>
-                <img src={Love} alt="Love Icon" />
+        <div className="flex justify-between gap-10 mt-10 flex-wrap max-lg:flex-col">
+          {housesProperty.map((house, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-br-md rounded-bl-md basis-[410px] hover:scale-[1.02] cursor-pointer shadow-xl max-md:hover:scale-[1]"
+            >
+              <div className="relative">
+                <img
+                  src={house.image}
+                  className="h-[200px] object-cover object-center w-full rounded-tr-md rounded-tl-md opacity-[.80]"
+                  alt="firstHouse Image"
+                />
+                <img
+                  src={Popular}
+                  className="absolute -bottom-[22px] -left-[7px]"
+                  alt="Popular Icon"
+                />
               </div>
-              <div className="flex flex-col gap-3.5">
-                  <h2 className="font-bold  text-semi-navy-blue text-2xl">{house.houseName}</h2>
+
+              <div className="px-9 my-6 max-md:px-4">
+                <div className="flex justify-between items-center">
+                  <h2 className="font-bold text-2xl ">
+                    {house.price}
+                    <span className="text-[.7em] font-normal opacity-50 ">
+                      /{house.RentReceivalPeriod}
+                    </span>
+                  </h2>
+                  <img src={Love} alt="Love Icon" />
+                </div>
+                <div className="flex flex-col gap-3.5">
+                  <h2 className="font-bold  text-navy-blue text-2xl">
+                    {house.houseName}
+                  </h2>
+                  {/* <h2 className="font-bold  text-semi-navy-blue text-2xl">{house.houseName}</h2 */}
                   <p className="opacity-50 text-[.9em]">{house.location}</p>
                   <div className="oapcity-50 w-full bg-slate-200 h-[2px]"></div>
-              </div>
-              <div className="mt-4 flex justify-between items-center opacity-[.8]">
-                <div className="flex gap-2 max-md:gap-1 items-center">
+                </div>
+                <div className="mt-4 flex justify-between items-center opacity-[.8]">
+                  <div className="flex gap-2 max-md:gap-1 items-center">
                     <img src={Bed} alt="Bed Icon" />
                     <p className="max-md:text-[.9em]">{house.beds} Beds</p>
-                </div>
-                <div className="flex gap-2 max-md:gap-1 items-center">
+                  </div>
+                  <div className="flex gap-2 max-md:gap-1 items-center">
                     <img src={BathRoom} alt="Bathroom Icon" />
-                    <p className="max-md:text-[.9em]">{house.bathrooms} Bathrooms</p>
-                </div>
-                <div className="flex gap-2 max-md:gap-1">
+                    <p className="max-md:text-[.9em]">
+                      {house.bathrooms} Bathrooms
+                    </p>
+                  </div>
+                  <div className="flex gap-2 max-md:gap-1">
                     <img src={SquareMeter} alt="Square Meteres Icons" />
-                    <p className="max-md:text-[.9em]">{house.squareMeters} m<span className="align-super text-sm">2</span> </p>
+                    <p className="max-md:text-[.9em]">
+                      {house.squareMeters} m
+                      <span className="align-super text-sm">2</span>{" "}
+                    </p>
+                  </div>
                 </div>
               </div>
-              </div>
+            </div>
+          ))}
+        </div>
 
-          </div>
-        ))}
+        <div className="flex justify-center mt-10">
+          <button className="bg-navy-blue text-white px-5 py-2 rounded-md">
+            <Link to="/properties">View More Properties</Link>
+          </button>
+        </div>
       </div>
-      </div>
-
     </div>
   );
 };
