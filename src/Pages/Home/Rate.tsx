@@ -59,13 +59,13 @@ const Rate = () => {
 
   const responsive = {
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+      breakpoint: { max: 3000, min: 1204 },
       items: 3,
       // slidesToSlide: 4 // optional, default to 1.
     },
     tablet: {
-      breakpoint: { max: 1024, min: 764 },
-      items: 1,
+      breakpoint: { max: 1204, min: 764 },
+      items: 2,
       // slidesToSlide: 2 // optional, default to 1.
     },
     mobile: {
@@ -85,14 +85,14 @@ const Rate = () => {
   return (
     <div className="bg-navy-blue text-white py-16 max-md:pt-10">
       <div className="w-10/12 mx-auto ">
-        <div className="flex justify-between max-md:flex-col max-md:gap-7">
+        <div className="flex justify-between max-lg:flex-col max-lg:gap-7">
           <h2 className="text-4xl leading-snug font-bold">
-            We make it easy for <br className="max-md:hidden" />{" "}
+            We make it easy for <br className="max-lg:hidden" />{" "}
             <span className="text-blue-700 ">Tenants</span> and{" "}
             <span className="text-blue-700">Landlords.</span>
           </h2>
 
-          <p className="w-[34%] max-md:w-full tracking-wider leading-relaxed text-[.9em]">
+          <p className="w-[34%] max-xl:w-[45%] max-lg:w-full tracking-wider leading-relaxed max-md:tracking-normal text-[1.1em] max-md:text-[.9em]">
             Whether it’s selling your current home, getting financing, or buying
             a new home, we make it easy and efficient. The best part? you’ll
             save a bunch of money and time with our services.
@@ -100,9 +100,9 @@ const Rate = () => {
         </div>
       </div>
 
-      <div className="mt-16 max-md:mt-4">
+      <div className="mt-16 max-xl:mt-10 max-md:mt-4">
         <div className="w-full  flex justify-start">
-          <div className="w-[100%] max-md:ml-0 ml-32 overflow-hidden">
+          <div className="w-[100%] max-xl:ml-0 max-lg:ml-0 ml-32 overflow-hidden">
             <Carousel
               swipeable={true}
               draggable={true}
