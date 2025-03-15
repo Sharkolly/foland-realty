@@ -11,6 +11,12 @@ const Nav = () => {
 
   const changeMenu = () => setMenu(!menu);
 
+  const logOut = () => {
+    localStorage.setItem("token", "");
+    localStorage.setItem("isLoggedIn", "false");
+    location.reload();
+  };
+
   return (
     <header className="flex justify-between items-center border-b-2 border-navy-blue w-full bg-white shadow-5xl fixed top-0 left-0 right-0 h-[85px] z-[99]">
       <div className="w-[90%] mx-auto flex justify-between items-center max-md:w-[95%] ">
@@ -102,14 +108,9 @@ const Nav = () => {
             </li>
             {isLoggedIn && token ? (
               <li className="hidden max-md:block">
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "font-semibold" : ""
-                  }
-                  to="/contact"
-                >
-                  Log Out
-                </NavLink>
+                  <button className="" onClick={logOut}>
+              Logout
+            </button>
               </li>
             ) : (
               <>
@@ -141,7 +142,7 @@ const Nav = () => {
         {/* </div> */}
         <div className="flex gap-4 max-md:hidden">
           {isLoggedIn && token ? (
-            <button className="bg-navy-blue text-white px-5 py-2 rounded-md">
+            <button className="bg-navy-blue text-white px-5 py-2 rounded-md" onClick={logOut}>
               Logout
             </button>
           ) : (
