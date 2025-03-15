@@ -15,7 +15,7 @@ const AboutUs = () => {
       description:
         "We offer our customer property protection of liability coverage and insurance for their better life.",
       image: PropertyInsuranceIcon,
-      y: -250,
+      y: -50,
       x: 0,
     },
     {
@@ -23,7 +23,7 @@ const AboutUs = () => {
       description:
         "Not sure what  you should be charging for your property? No need to worry, let us do the numbers for you.",
       image: BestPriceIcon,
-      x: 150,
+      x: 50,
       y: 0,
     },
     {
@@ -31,7 +31,7 @@ const AboutUs = () => {
       description:
         "You no longer have to negotiate commissions and haggle with other agents it only cost 2%!",
       image: LowestCommissionIcon,
-      y: 250,
+      y: 50,
       x: 0,
     },
     {
@@ -39,7 +39,7 @@ const AboutUs = () => {
       description:
         "Get a virtual tour, and schedule visits before you rent or buy any properties. You get overall control.",
       image: OverallControlIcon,
-      x: 150,
+      x: 50,
       y: 0,
     },
   ];
@@ -48,7 +48,7 @@ const AboutUs = () => {
     <div className=" mt-10 w-10/12 max-md:w-[90%] mx-auto flex">
       <div className="w-full flex gap-20 mt-10 max-lg:flex-col max-xl:gap-10 max-md:mt-2">
         <motion.div
-          initial={{ x: -150, opacity: 0 }}
+          initial={{ x: -50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={transition}
           viewport={{ once: true }}
@@ -80,7 +80,7 @@ const AboutUs = () => {
         </motion.div>
 
         <motion.div
-          initial={{ x: 150, opacity: 0 }}
+          initial={{ x: 50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={transition}
           viewport={{ once: true }}
