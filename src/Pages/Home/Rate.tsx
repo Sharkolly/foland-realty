@@ -160,7 +160,7 @@ const Rate = () => {
 
       <div className="flex w-10/12 mx-auto max-md:w-[90%] max-md:flex-col justify-center gap-16 text-center items-center max-md:gap-5">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -150 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={transition}
           viewport={{ once: true }}
@@ -173,7 +173,7 @@ const Rate = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, y: -150 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={transition}
           viewport={{ once: true }}
@@ -192,14 +192,14 @@ const Rate = () => {
           <p className="opacity-75 text-[.9em]">Property in Sell & Rent</p>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 150 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={transition}
           viewport={{ once: true }}
           className="w-[2px] h-[50px] bg-white"
         ></motion.div>
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 150 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={transition}
           viewport={{ once: true }}
