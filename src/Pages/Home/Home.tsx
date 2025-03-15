@@ -12,6 +12,7 @@ import Apostrophe from "../../Images/icons/home-testimonial.svg";
 import Renters from "../../Images/icons/home-icon-50k.svg";
 import Properties from "../../Images/icons/home-icon-10k.svg";
 import { Link } from "react-router-dom";
+import CountUp from "react-countup";
 
 const Home = () => {
   const responsive = {
@@ -107,7 +108,6 @@ const Home = () => {
         draggable={false}
         showDots={false}
         responsive={responsive}
-        // ssr={true} // means to render carousel on server-side.
         infinite={true}
         autoPlay={true}
         autoPlaySpeed={4000}
@@ -196,7 +196,9 @@ const Home = () => {
 
                       <div className=''>
                         <h1 className="text-xl text-white opacity-90 ">
-                          50k+ Renters
+                          {/* 50 */}
+                          <CountUp start={0} end={50} duration={4} />
+                          k+ Renters
                         </h1>
                         <p className="text-white text-lg opacity-70 max-md:text-sm max-md:w-full">
                           Believe in our service
@@ -214,7 +216,8 @@ const Home = () => {
 
                       <div className=''>
                         <h1 className="text-xl text-white opacity-90">
-                          10k+ Properties and Houses
+                          {/* 10k+ */}
+                          <CountUp start={0} end={10} duration={10} />k+ Properties and Houses
                         </h1>
                         <p className="text-white text-lg opacity-70 max-md:text-sm">
                           Ready for Occupancy

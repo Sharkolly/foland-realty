@@ -4,6 +4,7 @@ import lastDeal from "../../Images/icons/get.svg";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useState } from "react";
+import CountUp from "react-countup";
 
 const Rate = () => {
   const rateDetails = [
@@ -156,20 +157,27 @@ const Rate = () => {
 
       <div className="flex w-10/12 mx-auto max-md:w-[90%] max-md:flex-col justify-center gap-16 text-center items-center max-md:gap-5">
         <div className="flex flex-col gap-4">
-          <h2 className="text-4xl font-bold max-md:text-2xl">7.4%</h2>
+          <h2 className="text-4xl font-bold max-md:text-2xl">
+            
+          <CountUp start={0.1} end={7.4} duration={5} decimals={1} />%
+            
+          </h2>
           <p className="opacity-75 text-[.9em]">Property Return Rate</p>
         </div>
 
-        {/* <div className="w-[2px] h-[50px] bg-white max-md:w-full max-md:h-[2px]"></div> */}
         <div className="w-[2px] h-[50px] bg-white"></div>
         <div className="flex flex-col gap-4">
-          <h2 className="text-4xl font-bold max-md:text-2xl">3,856</h2>
+          <h2 className="text-4xl font-bold max-md:text-2xl">
+          <CountUp start={0} end={3856} duration={6} />
+          </h2>
           <p className="opacity-75 text-[.9em]">Property in Sell & Rent</p>
         </div>
         <div className="w-[2px] h-[50px] bg-white"></div>
-        {/* <div className="w-[2px] h-[50px] bg-white max-md:w-full max-md:h-[2px]"></div> */}
         <div className="flex flex-col gap-4">
-          <h2 className="text-4xl font-bold max-md:text-2xl">2,540</h2>
+          <h2 className="text-4xl font-bold max-md:text-2xl">
+
+          <CountUp start={0} end={2540} duration={4} />
+          </h2>
           <p className="opacity-75 text-[.9em]">Daily Completed Transactions</p>
         </div>
       </div>
