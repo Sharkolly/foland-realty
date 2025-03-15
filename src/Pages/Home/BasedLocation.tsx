@@ -164,7 +164,7 @@ const BasedLocation = () => {
                     {house.houseName}
                   </h2>
                   {/* <h2 className="font-bold  text-semi-navy-blue text-2xl">{house.houseName}</h2 */}
-                  <p className="opacity-50 text-[.9em]">{house.location}</p>
+                  <p className="opacity-50 text-[.9em] max-sm:text-[.9em]">{house.location}</p>
                   <div className="oapcity-50 w-full bg-slate-200 h-[2px]"></div>
                 </div>
                 <div className="mt-4 flex justify-between items-center opacity-[.8]">
@@ -178,7 +178,7 @@ const BasedLocation = () => {
                       {house.bathrooms} Bathrooms
                     </p>
                   </div>
-                  <div className="flex gap-2 max-md:gap-1 items-center">
+                  <div className="flex gap-2 max-md:gap-1 items-center max-sm:hidden">
                     <img src={SquareMeter} alt="Square Meteres Icons" />
                     <p className="max-md:text-[.8em]">
                       {house.squareMeters} m

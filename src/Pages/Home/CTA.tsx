@@ -22,15 +22,16 @@ const CTA = () => {
             </p>
           </div>
 
-          <form className="bg-white flex justify-between py-3 w-6/12 mx-auto max-xl:w-8/12 max-lg:w-10/12  px-6 my-7 max-md:px-2 max-md:flex-col max-md:gap-4 rounded-lg max-md:bg-transparent">
+          <form className="bg-white flex justify-between py-3 w-6/12 mx-auto max-xl:w-8/12 max-lg:w-10/12 max-md:w-full px-6 my-7 max-md:px-2 max-md:flex-col max-md:gap-4 rounded-lg max-md:bg-transparent">
             <input
               type="text"
               className="outline-none border-none w-[75%] max-md:w-full max-md:bg-white max-md:px-5 max-md:py-3 max-md:rounded-lg"
               placeholder="Enter your email address"
             />
-            <button className="bg-navy-blue text-white px-5 py-2 rounded-md">
+            <button className="bg-navy-blue text-white px-5 py-2 max-md:py-4 rounded-md">
               Submit
             </button>
+           
           </form>
 
           <div className="text-center">
