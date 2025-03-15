@@ -133,8 +133,8 @@ const Home = () => {
             <div className="w-10/12 mx-auto max-md:w-[90%]">
               <div className="flex flex-col pt-16 max-xl:pt-12 max-md:pt-8 pb-8 gap-2">
                 <motion.div
-                  initial={{ x: -150, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
+                  initial={{  opacity: 0 }}
+                  whileInView={{  opacity: 1 }}
                   transition={transition}
                   viewport={{ once: true }}
                   className="w-full flex flex-col gap-3"
