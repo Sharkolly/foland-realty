@@ -8,6 +8,8 @@
 
 @theme {
   --color-navy-blue: #01002b;
+  --color-white-half-opacity: #FFFFFF80;
+  --color-cta-grey: #9EA3AE;
   --color-stroke-grey: #312F4B;
   --color-low-red: #F3E9E8;
   --color-semi-navy-blue: #1E40AF;

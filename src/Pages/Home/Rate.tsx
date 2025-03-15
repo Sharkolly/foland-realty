@@ -12,7 +12,7 @@ const Rate = () => {
       description:
         "You can communicate directly with landlords and we provide you with virtual tour before you buy or rent the property.",
       image: Virtual,
-      bgColor: "white/50",
+      bgColor: "white-half-opacity",
       textColor: "white",
     },
     {
@@ -36,7 +36,7 @@ const Rate = () => {
       description:
         "You can communicate directly with landlords and we provide you with virtual tour before you buy or rent the property.",
       image: Virtual,
-      bgColor: "white/50",
+      bgColor: "white-half-opacity",
       textColor: "white",
     },
     {
@@ -125,7 +125,7 @@ const Rate = () => {
                   className={`w-full mx-auto flex justify-center transition-all duration-500 ${
                     index === activeIndex
                       ? "scale-110 opacity-100"
-                      : "scale-90 opacity-70"
+                      : "scale-90 opacity-80"
                   }`}
                 >
                   <div
