@@ -13,8 +13,10 @@ import Renters from "../../Images/icons/home-icon-50k.svg";
 import Properties from "../../Images/icons/home-icon-10k.svg";
 import { Link } from "react-router-dom";
 import CountUp from "react-countup";
+import { motion } from "framer-motion";
 
 const Home = () => {
+  const transition = { ease: "linear", duration: 0.6 };
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -130,7 +132,13 @@ const Home = () => {
           >
             <div className="w-10/12 mx-auto max-md:w-[90%]">
               <div className="flex flex-col pt-16 max-xl:pt-12 max-md:pt-8 pb-8 gap-2">
-                <div className="w-full flex flex-col gap-3">
+                <motion.div
+                  initial={{ x: -150, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={transition}
+                  viewport={{ once: true }}
+                  className="w-full flex flex-col gap-3"
+                >
                   <h1 className="text-white w-[63%] text-[3.5em] leading-tight tracking-wide font-bold pb-3 max-xl:w-[60%] max-xl:tracking-normal max-xl:text-[3em] max-lg:w-full  max-lg:text-[3em] max-md:text-[2.7em]">
                     {slide.title}
                   </h1>
@@ -138,7 +146,7 @@ const Home = () => {
                     {slide.description}
                   </p>
 
-                  <div className='hidden max-md:block'>
+                  <div className="hidden max-md:block">
                     <button className="bg-semi-navy-blue text-white px-5 py-2 rounded-md mt-3">
                       <Link to="/view-properties">View Properties</Link>
                     </button>
@@ -160,7 +168,9 @@ const Home = () => {
                     <div className="flex max-lg:flex-col">
                       <div className="bg-white py-4 border-none rounded-bl-lg px-8 max-lg:px-6 max-lg:rounded-bl-none max-lg:rounded-tr-lg">
                         <p className="opacity-80 text-lg">Location</p>
-                        <h3 className="text-lg font-bold max-md:text-[1.1em] max-lg:text-[1.5em]">Barcelona, Spain</h3>
+                        <h3 className="text-lg font-bold max-md:text-[1.1em] max-lg:text-[1.5em]">
+                          Barcelona, Spain
+                        </h3>
                       </div>
 
                       <div className="flex items-center bg-white justify-center">
@@ -186,7 +196,11 @@ const Home = () => {
                     </div>
                   </div>
 
-                  <div className="flex gap-24 mt-8 max-md:flex-col max-md:gap-16">
+                  <motion.div
+                   
+                    // viewport={{ once: true }}
+                    className="flex gap-24 mt-8 max-md:flex-col max-md:gap-16"
+                  >
                     <div className="flex flex-col gap-4 ">
                       <img
                         src={Renters}
@@ -194,7 +208,7 @@ const Home = () => {
                         alt="Renters Icon"
                       />
 
-                      <div className=''>
+                      <div className="">
                         <h1 className="text-xl text-white opacity-90 ">
                           {/* 50 */}
                           <CountUp start={0} end={50} duration={4} />
@@ -206,7 +220,6 @@ const Home = () => {
                       </div>
                     </div>
 
-
                     <div className="flex flex-col gap-4 ">
                       <img
                         src={Properties}
@@ -214,18 +227,19 @@ const Home = () => {
                         alt="Renters Icon"
                       />
 
-                      <div className=''>
+                      <div className="">
                         <h1 className="text-xl text-white opacity-90">
                           {/* 10k+ */}
-                          <CountUp start={0} end={10} duration={10} />k+ Properties and Houses
+                          <CountUp start={0} end={10} duration={10} />
+                          k+ Properties and Houses
                         </h1>
                         <p className="text-white text-lg opacity-70 max-md:text-sm">
                           Ready for Occupancy
                         </p>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </div>
             </div>
 

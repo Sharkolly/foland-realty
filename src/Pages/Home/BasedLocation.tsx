@@ -15,8 +15,10 @@ import Love from "../../Images/icons/Favorited.svg";
 import Bed from "../../Images/icons/Bed.svg";
 import BathRoom from "../../Images/icons/Bath.svg";
 import SquareMeter from "../../Images/icons/Square Meters.svg";
+import { motion } from "framer-motion";
 
 const BasedLocation = () => {
+  const transition = { ease: "linear", duration: 0.6 };
   const housesProperty = [
     {
       houseName: "Palm Harbor",
@@ -130,7 +132,12 @@ const BasedLocation = () => {
             />
           </div>
         </div>
-        <div className="flex justify-between gap-10 mt-10 flex-wrap max-lg:flex-col">
+        <motion.div
+          initial={{  opacity: 0 }}
+          whileInView={{ opacity: 1,scale: 1 }}
+          transition={transition}
+          viewport={{ once: true }}
+         className="flex justify-between gap-10 mt-10 flex-wrap max-lg:flex-col">
           {housesProperty.map((house, index) => (
             <div
               key={index}
@@ -189,7 +196,7 @@ const BasedLocation = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="flex justify-center mt-10">
           <button className="bg-navy-blue text-white px-5 py-2 rounded-md">

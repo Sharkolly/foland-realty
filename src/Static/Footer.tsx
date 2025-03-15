@@ -5,8 +5,9 @@ import { MdEmail } from "react-icons/md";
 import { FaXTwitter } from "react-icons/fa6";
 import Logo from "../Images/1-removebg-preview.png";
 import { Link } from "react-router-dom";
-const Footer = () => {
+// import { motion } from "framer-motion";
 
+const Footer = () => {
 
   return (
     <div>

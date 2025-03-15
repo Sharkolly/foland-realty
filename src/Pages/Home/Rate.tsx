@@ -5,8 +5,11 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useState } from "react";
 import CountUp from "react-countup";
+import { motion } from "framer-motion";
 
 const Rate = () => {
+  const transition = { ease: "linear", duration: 0.6 };
+
   const rateDetails = [
     {
       name: "Virtual home tour",
@@ -156,30 +159,57 @@ const Rate = () => {
       <div className="bg-stroke-grey w-full h-[2px] my-16 max-md:my-10"></div>
 
       <div className="flex w-10/12 mx-auto max-md:w-[90%] max-md:flex-col justify-center gap-16 text-center items-center max-md:gap-5">
-        <div className="flex flex-col gap-4">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={transition}
+          viewport={{ once: true }}
+          className="flex flex-col gap-4"
+        >
           <h2 className="text-4xl font-bold max-md:text-2xl">
-            
-          <CountUp start={0.1} end={7.4} duration={5} decimals={1} />%
-            
+            <CountUp start={0.1} end={7.4} duration={5} decimals={1} />%
           </h2>
           <p className="opacity-75 text-[.9em]">Property Return Rate</p>
-        </div>
+        </motion.div>
 
-        <div className="w-[2px] h-[50px] bg-white"></div>
-        <div className="flex flex-col gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={transition}
+          viewport={{ once: true }}
+          className="w-[2px] h-[50px] bg-white"
+        ></motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={transition}
+          viewport={{ once: true }}
+          className="flex flex-col gap-4"
+        >
           <h2 className="text-4xl font-bold max-md:text-2xl">
-          <CountUp start={0} end={3856} duration={6} />
+            <CountUp start={0} end={3856} duration={6} />
           </h2>
           <p className="opacity-75 text-[.9em]">Property in Sell & Rent</p>
-        </div>
-        <div className="w-[2px] h-[50px] bg-white"></div>
-        <div className="flex flex-col gap-4">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={transition}
+          viewport={{ once: true }}
+          className="w-[2px] h-[50px] bg-white"
+        ></motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={transition}
+          viewport={{ once: true }}
+          className="flex flex-col gap-4"
+        >
           <h2 className="text-4xl font-bold max-md:text-2xl">
-
-          <CountUp start={0} end={2540} duration={4} />
+            <CountUp start={0} end={2540} duration={4} />
           </h2>
           <p className="opacity-75 text-[.9em]">Daily Completed Transactions</p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
