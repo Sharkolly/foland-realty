@@ -18,7 +18,7 @@ import SquareMeter from "../../Images/icons/Square Meters.svg";
 import { motion } from "framer-motion";
 
 const BasedLocation = () => {
-  const transition = { ease: "linear", duration: 0.6 };
+  const transition = { ease: "linear", duration: 1.1 };
   const housesProperty = [
     {
       houseName: "Palm Harbor",
@@ -105,7 +105,13 @@ const BasedLocation = () => {
         </div>
 
         <div className="flex justify-between items-center mt-12 max-md:mt-8 max-md:flex-col max-md:gap-3">
-          <div className=" flex  border-2 rounded-md border-navy-blue px-1 py-1 bg-low-red max-md:w-full max-md:justify-between">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={transition}
+            viewport={{ once: true }}
+            className=" flex  border-2 rounded-md border-navy-blue px-1 py-1 bg-low-red max-md:w-full max-md:justify-between"
+          >
             <div className="flex bg-white gap-3 border-2 items-center px-5 py-3 rounded-md">
               <img src={Rent} alt="Rent Image" />
               <p className="font-bold ">Rent</p>
@@ -118,9 +124,14 @@ const BasedLocation = () => {
               <img src={Sell} alt="Sell Image" />
               <p>Sell</p>
             </div>
-          </div>
+          </motion.div>
 
-          <div
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={transition}
+            viewport={{ once: true }}
+          
             className="flex border-2 rounded-md border-navy-blue px-4 py-4 bg-low-red 
           max-md:w-full"
           >
@@ -130,14 +141,15 @@ const BasedLocation = () => {
               className="border-none outline-none pl-4 pr-4 max-md:pr-0 max-md:w-full"
               placeholder="Lagos"
             />
-          </div>
+          </motion.div>
         </div>
         <motion.div
-          initial={{  opacity: 0 }}
-          whileInView={{ opacity: 1,scale: 1 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           transition={transition}
           viewport={{ once: true }}
-         className="flex justify-between gap-10 mt-10 flex-wrap max-lg:flex-col">
+          className="flex justify-between gap-10 mt-10 flex-wrap max-lg:flex-col"
+        >
           {housesProperty.map((house, index) => (
             <div
               key={index}
@@ -171,7 +183,9 @@ const BasedLocation = () => {
                     {house.houseName}
                   </h2>
                   {/* <h2 className="font-bold  text-semi-navy-blue text-2xl">{house.houseName}</h2 */}
-                  <p className="opacity-50 text-[.9em] max-sm:text-[.9em]">{house.location}</p>
+                  <p className="opacity-50 text-[.9em] max-sm:text-[.9em]">
+                    {house.location}
+                  </p>
                   <div className="oapcity-50 w-full bg-slate-200 h-[2px]"></div>
                 </div>
                 <div className="mt-4 flex justify-between items-center opacity-[.8]">
