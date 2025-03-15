@@ -1,8 +1,53 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useState, useEffect } from "react";
+import axios, { AxiosError } from "axios";
+
 const CTA = () => {
+  const [email, setEmail] = useState<string>("");
+  const [messageFromServer, setMessageFromServer] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const submitEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const { data } = await axios.post(
+        // "http://localhost:3001/subscribe",
+        "https://foland-realty-server.onrender.com/subscribe",
+        {
+          email,
+        }
+      );
+      setMessageFromServer(data.message);
+      localStorage.setItem("isSubscribed", "true");
+    } catch (error) {
+      const AxiosErr = error as AxiosError<{ message?: string }>;
+      const errorMessage =
+        AxiosErr.response?.data?.message || "An unexpected error occurred";
+      setMessageFromServer(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+      setEmail('');
+    }
+  };
+
+  useEffect(() => {
+    if (messageFromServer) {
+      setTimeout(() => {
+        setMessageFromServer("");
+      }, 2000);
+    }
+  }, [messageFromServer]);
+
   return (
     <div>
       <div
-        className="py-20 flex justify-center items-center  max-md:py-14 "
+        className="py-16 flex justify-center items-center  max-md:py-14 "
         style={{
           background:
             "linear-gradient(rgba(247,247,253,0.5),#F7F7FD,rgba(247,247,253,0.5))",
@@ -22,17 +67,32 @@ const CTA = () => {
             </p>
           </div>
 
-          <form className="bg-white flex justify-between py-3 w-6/12 mx-auto max-xl:w-8/12 max-lg:w-10/12 max-md:w-full px-6 my-7 max-md:px-2 max-md:flex-col max-md:gap-4 rounded-lg max-md:bg-transparent">
+          <form
+            onSubmit={(e) => submitEmail(e)}
+            className="bg-white flex justify-between py-3 w-6/12 mx-auto max-xl:w-8/12 max-lg:w-10/12 max-md:w-full px-6 mt-6 mb-4 max-md:px-2 max-md:flex-col max-md:gap-4 rounded-lg max-md:bg-transparent"
+          >
             <input
+              onChange={(e) => onChangeEmail(e)}
+              value={email}
               type="text"
               className="outline-none border-none w-[75%] max-md:w-full max-md:bg-white max-md:px-5 max-md:py-3 max-md:rounded-lg"
               placeholder="Enter your email address"
             />
             <button className="bg-navy-blue text-white px-5 py-2 max-md:py-4 rounded-md">
-              Submit
+              {isSubmitting ? "Please Wait ..." : "Submit"}
             </button>
-           
           </form>
+          <div className="text-center my-6">
+            <p
+              className={` ${
+                messageFromServer === "Subscribed successfully!"
+                  ? "text-green-600"
+                  : "text-red-600"
+              }  mt-2.5 text-center`}
+            >
+              {messageFromServer && messageFromServer}{" "}
+            </p>
+          </div>
 
           <div className="text-center">
             <p className="text-cta-grey text-md tracking-wide ">
