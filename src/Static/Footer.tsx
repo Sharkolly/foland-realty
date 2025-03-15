@@ -7,7 +7,7 @@ import Logo from "../Images/1-removebg-preview.png";
 import { Link } from "react-router-dom";
 const Footer = () => {
 
-  
+
   return (
     <div>
       <div className="">
@@ -90,23 +90,23 @@ const Footer = () => {
               <p>&copy;2025 Foland Realty. All rights reserved.</p>
             </div>
 
-            <div className="text-slate-400 text-xl flex gap-10 items-center ">
-              <Link to="/">
+            <div className="text-slate-400 text-2xl flex gap-10 items-center max-md:text-xl ">
+              <Link to="/" className="hover:text-semi-navy-blue max-md:hover:text-slate-400">
                 <FaFacebook />
               </Link>
               <Link
                 to="https://wa.me/+2347035439642"
-                className=""
+                className="hover:text-green-500 max-md:hover:text-slate-400"
               >
                 <IoLogoWhatsapp />
               </Link>
-              <Link to="/>">
+              <Link to="/" className="hover:text-red-500 max-md:hover:text-slate-400">
                 <MdEmail />
               </Link>
-              <Link to="/>">
+              <Link to="/" className="hover:text-black max-md:hover:text-slate-400">
                 <FaXTwitter />
               </Link>
-              <Link to="/>">
+              <Link to="/" className="hover:text-red-700 max-md:hover:text-slate-400">
                 <GrInstagram />
               </Link>
             </div>

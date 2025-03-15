@@ -151,7 +151,7 @@ const BasedLocation = () => {
 
               <div className="px-9 my-6 max-md:px-4">
                 <div className="flex justify-between items-center">
-                  <h2 className="font-bold text-2xl ">
+                  <h2 className="font-bold text-2xl text-[#111111] ">
                     {house.price}
                     <span className="text-[.7em] font-normal opacity-50 ">
                       /{house.RentReceivalPeriod}
@@ -160,7 +160,7 @@ const BasedLocation = () => {
                   <img src={Love} alt="Love Icon" />
                 </div>
                 <div className="flex flex-col gap-3.5">
-                  <h2 className="font-bold  text-navy-blue text-2xl">
+                  <h2 className="font-bold  text-semi-navy-blue text-2xl">
                     {house.houseName}
                   </h2>
                   {/* <h2 className="font-bold  text-semi-navy-blue text-2xl">{house.houseName}</h2 */}
