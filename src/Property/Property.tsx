@@ -107,13 +107,13 @@ const Property = () => {
         </p>
       </div>
 
-      <div className="flex justify-between items-center mt-12 max-md:mt-8 max-md:flex-col max-md:gap-3 mb-6">
+      <div className="flex justify-between items-center mt-12 max-md:mt-8 max-lg:flex-col max-lg:gap-5 mb-6">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={transition}
           viewport={{ once: true }}
-          className=" flex  border-2 rounded-md border-navy-blue px-1 py-1 bg-low-red max-md:w-full max-md:justify-between"
+          className=" flex  border-2 rounded-md border-navy-blue px-1 py-1 bg-low-red max-lg:w-full max-lg:justify-between"
         >
           <div
             onClick={rent}
@@ -150,7 +150,7 @@ const Property = () => {
           transition={transition}
           viewport={{ once: true }}
           className="flex border-2 rounded-md border-navy-blue px-4 py-4 bg-low-red 
-          max-md:w-full"
+          max-lg:w-full"
         >
           <img src={Search} alt="Search Icon" />
           <input
