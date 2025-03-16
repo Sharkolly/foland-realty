@@ -25,6 +25,7 @@ import LayoutWithoutFooter from "./Static/LayoutWithoutFooter";
 import AddPropertyLayoyut from "./Add-Property/AddPropertyLayoyut";
 import SavedPropertyLayout from "./SavedProperty.tsx/SavedPropertyLayout";
 import ProfileLayout from "./Profile/ProfileLayout";
+import PropertyLayout from "./Property/PropertyLayout";
 
 // import { useContextStore } from "./Store/Context";
 
@@ -84,7 +85,7 @@ function App() {
             path="properties"
             element={
               <ProtectedRoute>
-                <AddPropertyLayoyut />
+                <PropertyLayout />
               </ProtectedRoute>
             }
           />

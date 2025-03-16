@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const SideBar = () => {
   return (
     <div>
-      <div className=" bg-slate-100 fixed left-0 w-[20%] rounded-br-lg rounded-tr-lg py-10 pl-28 overflow-y-auto h-[100vh]  max-md:hidden max-xl:w-[23%] max-xl:pl-20 max-lg:pl-14 max-lg:w-[30%] ">
+      <div className="bg-blue-100/10 fixed left-0 w-[20%] rounded-br-lg rounded-tr-lg py-10 pl-28 overflow-y-auto h-[100vh]  max-md:hidden max-xl:w-[23%] max-xl:pl-20 max-lg:pl-14 max-lg:w-[30%] ">
         <div className="">
           <nav>
             <ul className="flex gap-16 flex-col text-navy-blue">
@@ -17,7 +17,7 @@ const SideBar = () => {
                   Home
                 </NavLink>
               </li>
-            
+
               <li>
                 <NavLink
                   className={({ isActive }) =>
@@ -97,9 +97,7 @@ const SideBar = () => {
                 </NavLink>
               </li>
               <li className="">
-              <button className=" rounded-md">
-              Logout
-            </button>
+                <button className=" rounded-md">Logout</button>
               </li>
             </ul>
           </nav>
