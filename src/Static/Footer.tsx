@@ -11,10 +11,10 @@ const Footer = () => {
 
   return (
     <div>
-      <div className="">
+      {/* <div className=""> */}
         <div className="w-10/12 mx-auto text-navy-blue my-16 flex justify-between max-lg:w-[91%] max-md:flex-col max-md:gap-10 max-md:my-10">
           <div className="max-xl:basis-[30%] max-lg:basis-[23%] max-md:border-b-2 max-md:pb-7 max-md:border-slate-100 ">
-            <div className="flex gap-3 items-center max-lg:flex-col max-md:flex-row">
+            <div className="flex gap-3 items-center max-lg:flex-col max-lg:items-start max-md:flex-row">
               <div className="w-[30%] max-md:w-[25%]">
                 <Link to="/">
                   <img src={Logo} alt="Logo" />
@@ -113,7 +113,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </div>
   );
 };

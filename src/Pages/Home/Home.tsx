@@ -16,7 +16,7 @@ import CountUp from "react-countup";
 import { motion } from "framer-motion";
 
 const Home = () => {
-  const transition = { ease: "linear", duration: 0.6 };
+  const transition = { ease: "linear", duration: 0.9 };
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -104,7 +104,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="mt-[80px]">
+    <div className="">
       <Carousel
         swipeable={false}
         draggable={false}
@@ -133,7 +133,7 @@ const Home = () => {
             <div className="w-10/12 mx-auto max-md:w-[90%]">
               <div className="flex flex-col pt-16 max-xl:pt-12 max-md:pt-8 pb-8 gap-2">
                 <motion.div
-                  initial={{  opacity: 0 }}
+                  initial={{  opacity: 0, }}
                   whileInView={{  opacity: 1 }}
                   transition={transition}
                   viewport={{ once: true }}

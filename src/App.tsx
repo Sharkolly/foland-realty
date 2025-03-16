@@ -4,7 +4,6 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import About from "./Pages/About";
 import LayoutAuth from "./Auth/LayoutAuth";
 import Login from "./Auth/Login";
 import Signup from "./Auth/Signup";
@@ -18,6 +17,14 @@ import Error from "./Error/Error";
 import ScrollProgressBar from "./Components/ProgressBar";
 import LayoutPages from "./Static/LayoutPages";
 import HomeLayout from "./Pages/Home/HomeLayout";
+import AboutLayout from "./Pages/About/AboutLayout";
+import Serviceslayout from "./Pages/Services/Services.layout";
+import ContactLayout from "./Pages/Contact/ContactLayout";
+import SettingLayout from "./Settings/SettingLayout";
+import LayoutWithoutFooter from "./Static/LayoutWithoutFooter";
+import AddPropertyLayoyut from "./Add-Property/AddPropertyLayoyut";
+import SavedPropertyLayout from "./SavedProperty.tsx/SavedPropertyLayout";
+import ProfileLayout from "./Profile/ProfileLayout";
 
 // import { useContextStore } from "./Store/Context";
 
@@ -57,18 +64,78 @@ function App() {
           }
         />
 
+       
+        <Route path="/" element={<LayoutPages />}>
+          <Route index element={<HomeLayout />} />
+          <Route path="about" element={<AboutLayout />} />
+          <Route path="services" element={<Serviceslayout />} />
+          <Route path="contact" element={<ContactLayout />} />
+          <Route path="*" element={<Error />} />
+        </Route>
         <Route
-          path="/admin"
+          path="/"
+          element={
+            <ProtectedRoute>
+              <LayoutWithoutFooter />
+            </ProtectedRoute>
+          }
+        >
+          <Route
+            path="properties"
+            element={
+              <ProtectedRoute>
+                <AddPropertyLayoyut />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="rent"
+            element={
+              <ProtectedRoute>
+                <AddPropertyLayoyut />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="add-properties"
+            element={
+              <ProtectedRoute>
+                <AddPropertyLayoyut />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="saved-properties"
+            element={
+              <ProtectedRoute>
+                <SavedPropertyLayout />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="profile"
+            element={
+              <ProtectedRoute>
+                <ProfileLayout />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="settings"
+            element={
+              <ProtectedRoute>
+                <SettingLayout />
+              </ProtectedRoute>
+            }
+          />
+           <Route
+          path="admin"
           element={
             <ProtectedRoute>
               <Admin />
             </ProtectedRoute>
           }
         />
-        <Route path="/" element={<LayoutPages />}>
-          <Route index  element={<HomeLayout />} />
-          <Route path="about" element={<About />} />
-          <Route path="*" element={<Error />} />
         </Route>
       </>
     )

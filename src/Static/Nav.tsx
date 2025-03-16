@@ -61,9 +61,9 @@ const Nav = () => {
             <li>
               <NavLink
                 className={({ isActive }) => (isActive ? "font-semibold" : "")}
-                to="/contact"
+                to="/properties"
               >
-                Contact
+                Properties
               </NavLink>
             </li>
             <li className="hidden max-md:block">
