@@ -8,8 +8,8 @@ import { NavLink } from "react-router-dom";
 const PhoneTabs = () => {
   return (
     <div>
-      <div className="fixed bottom-0 left-0 right-0 bg-slate-300 py-4.5">
-        <div className=" flex justify-center items-center max-[580px]:gap-16 max-[400px]:gap-11 max-[400px]:gap-9 max-[360px]:gap-5  w-[91%] mx-auto">
+      <div className="fixed bottom-0 left-0 right-0 border-t-2 py-4.5">
+        <div className=" flex justify-around items-center  w-[91%] mx-auto">
           <NavLink
             className={({ isActive }) =>
               isActive
