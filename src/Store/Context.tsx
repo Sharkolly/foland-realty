@@ -18,6 +18,10 @@ type UserDetailsType = {
   setSubscribed: React.Dispatch<React.SetStateAction<string | null>>;
   showModal: boolean;
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  menu: boolean;
+  setMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  profileMenu: boolean;
+  setProfileMenu: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const UserDetails = createContext<UserDetailsType | undefined>(
@@ -39,6 +43,8 @@ const Context = () => {
     localStorage.getItem("isSubscribed")
   );
   const [showModal, setShowModal] = useState(false);
+  const [menu, setMenu] = useState(false);
+  const [profileMenu, setProfileMenu] = useState(false);
 
   return (
     <UserDetails.Provider
@@ -56,7 +62,11 @@ const Context = () => {
         subscribed,
         setSubscribed,
         showModal,
-        setShowModal
+        setShowModal,
+        menu,
+        setMenu,
+        profileMenu,
+        setProfileMenu,
       }}
     >
       <App />

@@ -2,13 +2,20 @@ import Nav from "./Nav";
 import { Outlet } from "react-router-dom";
 import SideBar from "./SideBar";
 import PhoneTabs from "./PhoneTabs";
+import { useContextStore } from "../Store/Context";
 // import Footer from "./Footer";
 
 const LayoutWithoutFooter = () => {
+  const { setMenu, setProfileMenu } = useContextStore();
+
+  const changeMenu = () => {
+    setMenu(false);
+    setProfileMenu(false);
+  };
   return (
     <div>
       <Nav />
-      <div className="mt-[85px] max-md:mt-[95px]">
+      <div className="mt-[85px] max-md:mt-[95px] " onClick={changeMenu}>
         <SideBar />
         <div
           className="ml-[20.5%] rounded-lg max-xl:ml-[24%]

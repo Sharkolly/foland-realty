@@ -16,9 +16,19 @@ import Bed from "../../Images/icons/Bed.svg";
 import BathRoom from "../../Images/icons/Bath.svg";
 import SquareMeter from "../../Images/icons/Square Meters.svg";
 import { motion } from "framer-motion";
+import {useState} from 'react';
+
+type filterPropertyType = 'Rent' | 'Sell' | "Buy"
 
 const BasedLocation = () => {
   const transition = { ease: "linear", duration: 1.1 };
+
+  const [filterProperty, setFilterProperty] = useState<filterPropertyType>('Rent');
+
+  const rent = () => setFilterProperty('Rent');
+  const buy = () => setFilterProperty('Buy');
+  const sell = () => setFilterProperty('Sell');
+
   const housesProperty = [
     {
       houseName: "Palm Harbor",
@@ -112,15 +122,15 @@ const BasedLocation = () => {
             viewport={{ once: true }}
             className=" flex  border-2 rounded-md border-navy-blue px-1 py-1 bg-low-red max-md:w-full max-md:justify-between"
           >
-            <div className="flex bg-white gap-3 border-2 items-center px-5 py-3 rounded-md">
+            <div onClick={rent} className={`${filterProperty === 'Rent' ? 'font-bold border-2 bg-white' : ''} flex gap-3   items-center px-5 py-3 rounded-md`}>
               <img src={Rent} alt="Rent Image" />
-              <p className="font-bold ">Rent</p>
+              <p className=" ">Rent</p>
             </div>
-            <div className="flex gap-3  items-center opacity-50 px-5 py-3 rounded-md">
+            <div onClick={buy} className={`${filterProperty === 'Buy' ? 'font-bold border-2 bg-white' : ''} flex gap-3   items-center px-5 py-3 rounded-md`}>
               <img src={Buy} alt="Buy Image" />
               <p>Buy</p>
             </div>
-            <div className="flex gap-3 items-center opacity-50 px-5 py-3 rounded-md">
+            <div onClick={sell} className={`${filterProperty === 'Sell' ? 'font-bold border-2 bg-white' : ''} flex gap-3   items-center px-5 py-3 rounded-md`}>
               <img src={Sell} alt="Sell Image" />
               <p>Sell</p>
             </div>

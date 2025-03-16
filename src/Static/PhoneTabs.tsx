@@ -1,6 +1,5 @@
 import { FaHome } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
-// import { IoMdSettings } from "react-icons/io";
 import { FaBookmark } from "react-icons/fa";
 import { PiHouseLineFill } from "react-icons/pi";
 import { NavLink } from "react-router-dom";

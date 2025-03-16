@@ -14,10 +14,19 @@ import Rent from "../Images/icons/rent.svg";
 import Sell from "../Images/icons/sel;.svg";
 import Buy from "../Images/icons/buy.svg";
 import Search from "../Images/icons/Search.svg";
+import { useState } from "react";
+
+type filterPropertyType = "Rent" | "Sell" | "Buy";
 
 const Property = () => {
-    const transition = { ease: "linear", duration: 1.1 };
-    
+  const transition = { ease: "linear", duration: 1.1 };
+  const [filterProperty, setFilterProperty] =
+    useState<filterPropertyType>("Rent");
+
+  const rent = () => setFilterProperty("Rent");
+  const buy = () => setFilterProperty("Buy");
+  const sell = () => setFilterProperty("Sell");
+
   const housesProperty = [
     {
       houseName: "Palm Harbor",
@@ -97,46 +106,60 @@ const Property = () => {
           Some of our picked properties near your location
         </p>
       </div>
-    
-      <div className="flex justify-between items-center mt-12 max-md:mt-8 max-md:flex-col max-md:gap-3 mb-6">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={transition}
-            viewport={{ once: true }}
-            className=" flex  border-2 rounded-md border-navy-blue px-1 py-1 bg-low-red max-md:w-full max-md:justify-between"
-          >
-            <div className="flex bg-white gap-3 border-2 items-center px-5 py-3 rounded-md">
-              <img src={Rent} alt="Rent Image" />
-              <p className="font-bold ">Rent</p>
-            </div>
-            <div className="flex gap-3  items-center opacity-50 px-5 py-3 rounded-md">
-              <img src={Buy} alt="Buy Image" />
-              <p>Buy</p>
-            </div>
-            <div className="flex gap-3 items-center opacity-50 px-5 py-3 rounded-md">
-              <img src={Sell} alt="Sell Image" />
-              <p>Sell</p>
-            </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={transition}
-            viewport={{ once: true }}
-          
-            className="flex border-2 rounded-md border-navy-blue px-4 py-4 bg-low-red 
-          max-md:w-full"
+      <div className="flex justify-between items-center mt-12 max-md:mt-8 max-md:flex-col max-md:gap-3 mb-6">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={transition}
+          viewport={{ once: true }}
+          className=" flex  border-2 rounded-md border-navy-blue px-1 py-1 bg-low-red max-md:w-full max-md:justify-between"
+        >
+          <div
+            onClick={rent}
+            className={`${
+              filterProperty === "Rent" ? "font-bold border-2 bg-white" : ""
+            } flex gap-3   items-center px-5 py-3 rounded-md`}
           >
-            <img src={Search} alt="Search Icon" />
-            <input
-              type="search"
-              className="border-none outline-none pl-4 pr-4 max-md:pr-0 max-md:w-full"
-              placeholder="Lagos"
-            />
-          </motion.div>
-        </div>
+            <img src={Rent} alt="Rent Image" />
+            <p className="font-bold ">Rent</p>
+          </div>
+          <div
+            onClick={buy}
+            className={`${
+              filterProperty === "Buy" ? "font-bold border-2 bg-white" : ""
+            } flex gap-3   items-center px-5 py-3 rounded-md`}
+          >
+            <img src={Buy} alt="Buy Image" />
+            <p>Buy</p>
+          </div>
+          <div
+            onClick={sell}
+            className={`${
+              filterProperty === "Sell" ? "font-bold border-2 bg-white" : ""
+            } flex gap-3   items-center px-5 py-3 rounded-md`}
+          >
+            <img src={Sell} alt="Sell Image" />
+            <p>Sell</p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={transition}
+          viewport={{ once: true }}
+          className="flex border-2 rounded-md border-navy-blue px-4 py-4 bg-low-red 
+          max-md:w-full"
+        >
+          <img src={Search} alt="Search Icon" />
+          <input
+            type="search"
+            className="border-none outline-none pl-4 pr-4 max-md:pr-0 max-md:w-full"
+            placeholder="Lagos"
+          />
+        </motion.div>
+      </div>
       {housesProperty.map((house, index) => (
         <div
           key={index}

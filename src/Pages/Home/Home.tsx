@@ -14,9 +14,11 @@ import Properties from "../../Images/icons/home-icon-10k.svg";
 import { Link } from "react-router-dom";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import {useState} from 'react';
+
+type filterPropertyType = 'Rent' | 'Sell' | "Buy"
 
 const Home = () => {
-  const transition = { ease: "linear", duration: 0.9 };
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -34,6 +36,12 @@ const Home = () => {
       // slidesToSlide: 1 // optional, default to 1.
     },
   };
+
+  const [filterProperty, setFilterProperty] = useState<filterPropertyType>('Rent');
+
+  const rent = () => setFilterProperty('Rent');
+  const buy = () => setFilterProperty('Buy');
+  const sell = () => setFilterProperty('Sell');
 
   const slideShowDetails = [
     {
@@ -132,11 +140,7 @@ const Home = () => {
           >
             <div className="w-10/12 mx-auto max-md:w-[90%]">
               <div className="flex flex-col pt-16 max-xl:pt-12 max-md:pt-8 pb-8 gap-2">
-                <motion.div
-                  initial={{  opacity: 0, }}
-                  whileInView={{  opacity: 1 }}
-                  transition={transition}
-                  viewport={{ once: true }}
+                <motion.div            
                   className="w-full flex flex-col gap-3"
                 >
                   <h1 className="text-white w-[63%] text-[3.5em] leading-tight tracking-wide font-bold pb-3 max-xl:w-[60%] max-xl:tracking-normal max-xl:text-[3em] max-lg:w-full  max-lg:text-[3em] max-md:text-[2.7em]">
@@ -154,13 +158,13 @@ const Home = () => {
 
                   <div className="mt-3 max-xl:mt-12 max-md:mt-6 max-lg:mt-9">
                     <div className=" flex w-full ">
-                      <p className="py-4 bg-white px-9 rounded-tl-md font-bold border-b-4 border-navy-blue text-navy-blue max-lg:px-6">
+                      <p onClick={rent} className={` ${filterProperty === 'Rent' ? 'border-b-4' : 'border-b-1'} py-4 bg-white px-9 rounded-tl-md font-bold  border-navy-blue text-navy-blue max-lg:px-6`}>
                         Rent
                       </p>
-                      <p className="py-4 bg-white border-b-1 border-blue px-9 text-navy-blue max-lg:px-6">
+                      <p onClick={buy} className={` ${filterProperty === 'Buy' ? 'border-b-4' : 'border-b-1'} py-4 bg-white px-9 font-bold  border-navy-blue text-navy-blue max-lg:px-6`}>
                         Buy
                       </p>
-                      <p className="py-4 bg-white border-b-1 border-blue px-9 rounded-tr-md text-navy-blue max-lg:px-6">
+                      <p onClick={sell} className={` ${filterProperty === 'Sell' ? 'border-b-4' : 'border-b-1'} py-4 bg-white px-9 rounded-tr-md font-bold  border-navy-blue text-navy-blue max-lg:px-6`}>
                         Sell
                       </p>
                     </div>
@@ -190,7 +194,7 @@ const Home = () => {
 
                       <div className="bg-white flex  border-none py-4 px-8 rounded-tr-lg rounded-br-lg max-lg:rounded-tr-none max-lg:rounded-b-lg max-lg:px-6">
                         <button className="bg-navy-blue text-white px-5 py-2 rounded-lg">
-                          <Link to="/prpperties">Browse Properties</Link>
+                          <Link to="/properties">Browse Properties</Link>
                         </button>
                       </div>
                     </div>
