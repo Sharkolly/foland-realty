@@ -8,12 +8,13 @@ const LayoutWithoutFooter = () => {
   return (
     <div>
       <Nav />
-      <div className="mt-[85px]">
+      <div className="mt-[85px] max-md:mt-[95px]">
         <SideBar />
-        <div className="ml-[20.5%] rounded-lg h-[2000px] bg-slate-200 max-xl:ml-[24%] max-md:mx-0 
-        max-md:w-[91%] max-md:mx-auto">
+        <div
+          className="ml-[20.5%] rounded-lg h-[1000px] max-xl:ml-[24%] max-md:mx-0 
+        max-md:w-[91%] max-md:mx-auto"
+        >
           <Outlet />
-          {/* <Footer /> */}
         </div>
       </div>
 

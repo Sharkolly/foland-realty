@@ -9,7 +9,7 @@ const PhoneTabs = () => {
   return (
     <div>
       <div className="fixed bottom-0 left-0 right-0 bg-slate-300 py-4.5">
-        <div className=" flex justify-between w-[91%] mx-auto">
+        <div className=" flex justify-center items-center gap-9 w-[91%] mx-auto">
           <NavLink
             className={({ isActive }) =>
               isActive ? "font-semibold v" : "flex-col flex gap-2 items-center"

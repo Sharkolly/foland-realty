@@ -79,7 +79,7 @@ const Nav = () => {
                 className={({ isActive }) => (isActive ? "font-semibold" : "")}
                 to="/contact"
               >
-                Properties
+                Contact
               </NavLink>
             </li>
             <li className="hidden max-md:block">
