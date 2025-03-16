@@ -18,7 +18,7 @@ const Nav = () => {
   };
 
   return (
-    <header className="flex justify-between items-center border-b-2 border-navy-blue w-full bg-white shadow-5xl fixed top-0 left-0 right-0 h-[85px] z-[99]">
+    <header className="flex justify-between items-center border-b-2 border-navy-blue w-full bg-white shadow-5xl fixed top-0 left-0 right-0 h-[85px] z-[40]">
       <div className="w-[90%] mx-auto flex justify-between items-center max-md:w-[95%] ">
         <div className="w-[10%] max-md:w-[25%]">
           <Link to="/">
@@ -30,7 +30,7 @@ const Nav = () => {
         </div>
         <nav className={`${menu ? `max-md:block` : `max-md:hidden`} `}>
         {/* {menu && ( */}
-          <ul className="z-[99] flex justify-center gap-10 max-md:flex-col max-lg:gap-6 max-md:fixed max-md:top-0 max-md:z-[99] max-md:w-[60%] max-md:right-0 max-md:px-8 max-md:pt-7 max-md:gap-12 max-md:text-white max-md:bg-navy-blue  max-md:backdrop-blur-md max-md:h-[100vh] max-md:justify-start">
+          <ul className="z-[99] flex justify-center gap-10 max-md:flex-col max-lg:gap-6 max-md:fixed max-md:top-0 max-md:z-[99] max-md:w-[60%] max-md:right-0 max-md:px-8 max-md:pt-6 max-md:gap-9 max-md:text-white max-md:bg-navy-blue  max-md:backdrop-blur-md max-md:h-[100vh] max-md:justify-start">
             <div className="hidden max-md:block flex justify-items-end" >
               <LiaTimesSolid className="text-3xl " onClick={changeMenu} />
             </div>
@@ -74,14 +74,7 @@ const Nav = () => {
                 Add Properties
               </NavLink>
             </li>
-            <li className="hidden max-md:block">
-              <NavLink
-                className={({ isActive }) => (isActive ? "font-semibold" : "")}
-                to="/contact"
-              >
-                Contact
-              </NavLink>
-            </li>
+           
             <li className="hidden max-md:block">
               <NavLink
                 className={({ isActive }) => (isActive ? "font-semibold" : "")}

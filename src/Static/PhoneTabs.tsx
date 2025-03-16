@@ -7,14 +7,14 @@ import { NavLink } from "react-router-dom";
 
 const PhoneTabs = () => {
   return (
-    <div>
-      <div className="fixed bottom-0 left-0 right-0 border-t-2 py-6">
+    <div className=''>
+      <div className="fixed bottom-0 left-0 right-0 border-t-2 py-6 ">
         <div className=" flex justify-evenly items-center  ">
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "opacity-[1] font-bold flex-col flex gap-2 items-center"
-                : "opacity-[.8] flex-col flex gap-2 items-center"
+                ? "opacity-[1] font-bold scale-[1.1] flex-col flex gap-2 items-center"
+                : "opacity-[.8] flex-col scale-[1.1] flex gap-2 items-center"
             }
             to="/"
           >
@@ -26,8 +26,8 @@ const PhoneTabs = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "opacity-[1] flex-col font-bold flex gap-2 items-center"
-                : "opacity-[.8] flex-col flex gap-2 items-center"
+                ? "opacity-[1] flex-col scale-[1.1] font-bold flex gap-2 items-center"
+                : "opacity-[.8] flex-col scale-[1.1] flex gap-2 items-center"
             }
             to="/properties"
           >
@@ -39,8 +39,8 @@ const PhoneTabs = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "opacity-[1] flex-col font-bold flex gap-2 items-center"
-                : "opacity-[.8] flex-col flex gap-2 items-center"
+                ? "opacity-[1] flex-col scale-[1.1] font-bold flex gap-2 items-center"
+                : "opacity-[.8] flex-col scale-[1.1] flex gap-2 items-center"
             }
             to="/saved-properties"
           >
@@ -52,8 +52,8 @@ const PhoneTabs = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "opacity-[1] flex-col font-bold flex gap-2 items-center"
-                : "opacity-[.8] flex-col flex gap-2 items-center"
+                ? "opacity-[1] flex-col scale-[1.1] font-bold flex gap-2 items-center"
+                : "opacity-[.8] flex-col scale-[1.1] flex gap-2 items-center"
             }
             to="/profile"
           >
