@@ -206,7 +206,7 @@ try {
           <p className="text-sm text-red-700">{passwordError} </p>
         </div>
 
-        <div className="flex gap-5 max-md:gap-3 text-slate-300 justify-between">
+        <div className="flex gap-5 max-md:gap-3 max-md:text-[.9em] text-slate-300 justify-between">
           <span className="font-bold">Sign as: </span>
           <div className="flex gap-3">
             <div className="flex gap-2 max-md:gap-1">
