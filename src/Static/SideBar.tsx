@@ -38,7 +38,7 @@ const SideBar = () => {
                   Contact
                 </NavLink>
               </li>
-              <li className="">
+              {/* <li className="">
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "font-semibold" : ""
@@ -47,7 +47,7 @@ const SideBar = () => {
                 >
                   Rent
                 </NavLink>
-              </li>
+              </li> */}
               <li className="">
                 <NavLink
                   className={({ isActive }) =>

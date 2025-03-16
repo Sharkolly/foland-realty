@@ -83,14 +83,14 @@ const Nav = () => {
                 Saved Properties
               </NavLink>
             </li>
-            {/* <li className="hidden max-md:block">
+            <li className="hidden max-md:block">
               <NavLink
                 className={({ isActive }) => (isActive ? "font-semibold" : "")}
-                to="/contact"
+                to="/profile"
               >
                 Profile
               </NavLink>
-            </li> */}
+            </li>
             <li className="hidden max-md:block">
               <NavLink
                 className={({ isActive }) => (isActive ? "font-semibold" : "")}
@@ -135,9 +135,11 @@ const Nav = () => {
         {/* </div> */}
         <div className="flex gap-4 max-md:hidden">
           {isLoggedIn && token ? (
-            <button className="bg-navy-blue text-white px-5 py-2 rounded-md" onClick={logOut}>
-              Logout
-            </button>
+        <div>
+          <Link to='/profile' className="w-13 h-13 rounded-full bg-navy-blue text-white flex justify-center items-center font-bold">
+            P
+          </Link>
+        </div>
           ) : (
             <>
               <button className="border-2 border-navy-blue text-nav-blue px-5 py-2 rounded-md">

@@ -89,7 +89,7 @@ const Property = () => {
 
   return (
     <div className="">
-      <div className="text-center flex flex-col gap-2 my-5 max-md:py-5 ">
+      <div className="text-center flex flex-col gap-2 my-5 max-md:py-5">
         <h2 className="text-navy-blue font-bold text-4xl max-md:text-[27px]">
           Based On Your Location
         </h2>
@@ -98,7 +98,7 @@ const Property = () => {
         </p>
       </div>
     
-      <div className="flex justify-between items-center mt-12 max-md:mt-8 max-md:flex-col max-md:gap-3 max-md:mb-6">
+      <div className="flex justify-between items-center mt-12 max-md:mt-8 max-md:flex-col max-md:gap-3 mb-6">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

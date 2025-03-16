@@ -12,7 +12,7 @@ const LayoutWithoutFooter = () => {
         <SideBar />
         <div
           className="ml-[20.5%] rounded-lg max-xl:ml-[24%]
-        max-md:w-[91%] max-md:mx-auto py-4 px-5 max-md:py-0 max-md:px-0"
+        max-md:w-[91%] max-md:mx-auto py-4 px-5 max-md:py-0 max-md:px-0 max-md:mb-[120px]"
         >
           <Outlet />
         </div>
