@@ -136,13 +136,13 @@ try {
   }, [formResponse]);
 
   return (
-    <div className="w-[80%]  mx-auto max-md:w-[90%]">
+    <div className="w-[80%]  mx-auto max-md:w-[90%] ">
        {/* <Helmet> */}
         {/* <title>Sign Up- Foland Realty</title> */}
         {/* <meta name="description" content="Learn more about Foland Realty, our mission, and how we help you find and manage rental properties." /> */}
         {/* <meta name="keywords" content="about Foland Realty, real estate company, rental management, property leasing" /> */}
       {/* </Helmet> */}
-  <div className="flex justify-center">
+  <div className="">
         <img src={Logo} className="scale-[.6]" alt="Foland Realty" />
       </div>
       <div className="">
