@@ -9,32 +9,38 @@ const PhoneTabs = () => {
   return (
     <div>
       <div className="fixed bottom-0 left-0 right-0 bg-slate-300 py-4.5">
-        <div className=" flex justify-center items-center gap-9 w-[91%] mx-auto">
+        <div className=" flex justify-center items-center gap-11 max-[400px]:gap-9 max-[360px]:gap-5  w-[91%] mx-auto">
           <NavLink
             className={({ isActive }) =>
-              isActive ? "font-semibold v" : "flex-col flex gap-2 items-center"
+              isActive
+                ? "opacity-[1] flex-col flex gap-2 items-center"
+                : "opacity-[.8] flex-col flex gap-2 items-center"
             }
             to="/"
           >
             <div>
               <FaHome />
             </div>
-            <p>Home</p>
+            <p className="text-[.9em]">Home</p>
           </NavLink>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "font-semibold flex-col flex gap-2 items-center" : "flex-col flex gap-2 items-center"
+              isActive
+                ? "opacity-[1] flex-col flex gap-2 items-center"
+                : "opacity-[.8] flex-col flex gap-2 items-center"
             }
             to="/properties"
           >
             <div>
               <PiHouseLineFill />
             </div>
-            <p>Properties</p>
+            <p className="text-[.9em]">Properties</p>
           </NavLink>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "font-semibold flex-col flex gap-2 items-center" : "flex-col flex gap-2 items-center"
+              isActive
+                ? "opacity-[1] flex-col flex gap-2 items-center"
+                : "opacity-[.8] flex-col flex gap-2 items-center"
             }
             to="/saved-properties"
           >
@@ -45,7 +51,9 @@ const PhoneTabs = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) =>
-              isActive ? "font-semibold flex-col flex gap-2 items-center" : "flex-col flex gap-2 items-center"
+              isActive
+                ? "opacity-[1] flex-col flex gap-2 items-center"
+                : "opacity-[.8] flex-col flex gap-2 items-center"
             }
             to="/profile"
           >
