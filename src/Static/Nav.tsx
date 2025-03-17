@@ -83,9 +83,9 @@ const Nav = () => {
             <li className="hidden max-md:block">
               <NavLink
                 className={({ isActive }) => (isActive ? "font-semibold" : "")}
-                to="/contact"
+                to="/add-property"
               >
-                Add Properties
+                Add Property
               </NavLink>
             </li>
 
@@ -158,7 +158,7 @@ const Nav = () => {
               </button>
 
               {profileMenu && <div>
-                <ul className="absolute flex flex-col w-[500%] bg-white border-b-2 border-l-2 top-[70px] border-slate-300 z-[10] left- left-[0%] translate-x-[-50%] gap-7 py-6 px-8 ">
+                <ul className="absolute flex flex-col w-[650%] bg-white border-b-2 border-l-2 top-[70px] border-slate-300 z-[10] left- left-[0%] translate-x-[-50%] gap-7 py-6 px-8 ">
                   <li className="">
                     <NavLink
                       className={({ isActive }) =>
@@ -205,7 +205,7 @@ const Nav = () => {
                     </NavLink>
                   </li>
                   <li className="">
-                    <button className="flex gap-3 items-center rounded-md">
+                    <button onClick={logOut} className="flex gap-3 items-center rounded-md">
                       <div>
                         <MdOutlineLogout />
                       </div>
@@ -232,3 +232,5 @@ const Nav = () => {
 };
 
 export default Nav;
+
+

@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 import { IoMdSettings } from "react-icons/io";
 const SideBar = () => {
   return (
-    <div className="relative overflow-y-auto">
+    <div className="relative overflow-y-auto z-[99]">
       {/* <div className="bg-blue-100/10 fixed shadow-xl left-0 w-[20%] rounded-br-lg rounded-tr-lg py-14 pl-28  max-md:hidden overflow-y-auto  h-screen max-xl:w-[23%] max-xl:pl-20 max-lg:pl-14 max-lg:w-[30%] ">
         <div className="overflow-y-auto  h-screen"> */}
       <div className="bg-blue-100/10 fixed shadow-xl left-[0%] w-[24%] max-md:hidden max-xl:w-[24%] max-xl:pl-0 max-lg:w-[30%] h-screen">
@@ -52,12 +52,12 @@ const SideBar = () => {
                       ? "font-semibold flex gap-3 items-center opacity-[1]"
                       : " flex gap-3 items-center opacity-[.8]"
                   }
-                  to="/add-properties"
+                  to="/add-property"
                 >
                   <div>
                   <IoIosAddCircleOutline />
                   </div>
-                  <p>Add Properties</p>
+                  <p>Add Property</p>
                 </NavLink>
               </li>
               <li className="">

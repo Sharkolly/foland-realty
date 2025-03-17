@@ -23,7 +23,7 @@ import ContactLayout from "./Pages/Contact/ContactLayout";
 import SettingLayout from "./Settings/SettingLayout";
 import LayoutWithoutFooter from "./Static/LayoutWithoutFooter";
 import AddPropertyLayoyut from "./Add-Property/AddPropertyLayoyut";
-import SavedPropertyLayout from "./SavedProperty.tsx/SavedPropertyLayout";
+import SavedPropertyLayout from "./SavedProperty/SavedPropertyLayout";
 import ProfileLayout from "./Profile/ProfileLayout";
 import PropertyLayout from "./Property/PropertyLayout";
 
@@ -98,7 +98,7 @@ function App() {
             }
           />
           <Route
-            path="add-properties"
+            path="add-property"
             element={
               <ProtectedRoute>
                 <AddPropertyLayoyut />
