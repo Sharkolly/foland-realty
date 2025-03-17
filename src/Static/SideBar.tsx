@@ -8,13 +8,14 @@ import { NavLink } from "react-router-dom";
 import { IoMdSettings } from "react-icons/io";
 const SideBar = () => {
   return (
-    <div className="relative">
+    <div className="relative overflow-y-auto">
       {/* <div className="bg-blue-100/10 fixed shadow-xl left-0 w-[20%] rounded-br-lg rounded-tr-lg py-14 pl-28  max-md:hidden overflow-y-auto  h-screen max-xl:w-[23%] max-xl:pl-20 max-lg:pl-14 max-lg:w-[30%] ">
         <div className="overflow-y-auto  h-screen"> */}
-      <div className="bg-blue-100/10 fixed shadow-xl left-0 w-[20%] max-md:hidden max-xl:w-[23%] max-xl:pl-20 max-lg:pl-1 max-lg:w-[30%] h-screen">
-        <div className="flex flex-col h-full overflow-y-auto rounded-br-lg rounded-tr-lg py-14 pl-24 max-lg:pl-10">
-          <nav>
-            <ul className="flex gap-16 flex-col text-navy-blue">
+      <div className="bg-blue-100/10 fixed shadow-xl left-[0%] w-[24%] max-md:hidden max-xl:w-[24%] max-xl:pl-0 max-lg:w-[30%] h-screen">
+        <div className="flex flex-col h-full  overflow-y-auto rounded-br-lg rounded-tr-lg py-10 pl-24 max-xl:pl-16 max-lg:pl-10">
+        {/* <div  > */}
+          <nav >
+            <ul className="flex gap-12 flex-col text-navy-blue">
               <li>
                 <NavLink
                className={({ isActive }) =>
