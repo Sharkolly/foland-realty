@@ -17,7 +17,6 @@ const LayoutPages = () => {
         <Outlet />
       </div>
       <Footer />
-      {/* </div> */}
     </div>
   );
 };

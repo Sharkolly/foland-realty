@@ -65,6 +65,20 @@ const Draft = () => {
   return (
     <div>
       {/* {isLoggedIn ? "" : <Route path="/login" element={<Layout><Login /></Layout>} />} */}
+        {/* <li className="">
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive
+                      ? "font-semibold flex gap-3 items-center opacity-[1]"
+                      : " flex gap-3 items-center opacity-[.8]"
+                  }
+                  to="/rent"
+                >
+                  Rent
+                </NavLink>
+              </li> */}
+      {/* <div className="bg-blue-100/10 fixed shadow-xl left-0 w-[20%] rounded-br-lg rounded-tr-lg py-14 pl-28  max-md:hidden overflow-y-auto  h-screen max-xl:w-[23%] max-xl:pl-20 max-lg:pl-14 max-lg:w-[30%] ">
+        <div className="overflow-y-auto  h-screen"> */}
       {/* {isLoggedIn ? "" : <Route path="/signup" element={<Layout><Signup /></Layout>} />} */}
       {/* {isLoggedIn ? (
             ""

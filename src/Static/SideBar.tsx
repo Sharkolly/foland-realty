@@ -9,23 +9,20 @@ import { IoMdSettings } from "react-icons/io";
 const SideBar = () => {
   return (
     <div className="relative overflow-y-auto z-[99]">
-      {/* <div className="bg-blue-100/10 fixed shadow-xl left-0 w-[20%] rounded-br-lg rounded-tr-lg py-14 pl-28  max-md:hidden overflow-y-auto  h-screen max-xl:w-[23%] max-xl:pl-20 max-lg:pl-14 max-lg:w-[30%] ">
-        <div className="overflow-y-auto  h-screen"> */}
       <div className="bg-blue-100/10 fixed shadow-xl left-[0%] w-[24%] max-md:hidden max-xl:w-[24%] max-xl:pl-0 max-lg:w-[30%] h-screen">
         <div className="flex flex-col h-full  overflow-y-auto rounded-br-lg rounded-tr-lg py-10 pl-24 max-xl:pl-16 max-lg:pl-10">
-        {/* <div  > */}
-          <nav >
+          {/* <div  > */}
+          <nav>
             <ul className="flex gap-12 flex-col text-navy-blue">
               <li>
                 <NavLink
-               className={({ isActive }) =>
+                  className={({ isActive }) =>
                     isActive
                       ? "font-semibold flex gap-3 items-center opacity-[1]"
                       : " flex gap-3 items-center opacity-[.8]"
                   }
                   to="/"
                 >
-                  
                   <div>
                     <FaHome />
                   </div>
@@ -33,18 +30,6 @@ const SideBar = () => {
                 </NavLink>
               </li>
 
-              {/* <li className="">
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "font-semibold flex gap-3 items-center opacity-[1]"
-                      : " flex gap-3 items-center opacity-[.8]"
-                  }
-                  to="/rent"
-                >
-                  Rent
-                </NavLink>
-              </li> */}
               <li className="">
                 <NavLink
                   className={({ isActive }) =>
@@ -55,7 +40,7 @@ const SideBar = () => {
                   to="/add-property"
                 >
                   <div>
-                  <IoIosAddCircleOutline />
+                    <IoIosAddCircleOutline />
                   </div>
                   <p>Add Property</p>
                 </NavLink>
@@ -92,7 +77,7 @@ const SideBar = () => {
               </li>
               <li className="">
                 <NavLink
-                     className={({ isActive }) =>
+                  className={({ isActive }) =>
                     isActive
                       ? "font-semibold flex gap-3 items-center opacity-[1]"
                       : " flex gap-3 items-center opacity-[.8]"
@@ -114,17 +99,17 @@ const SideBar = () => {
                   }
                   to="/settings"
                 >
-                <div>
-                  <IoMdSettings />
-                </div>
+                  <div>
+                    <IoMdSettings />
+                  </div>
                   <p>Settings</p>
                 </NavLink>
               </li>
               <li className="">
                 <button className="flex gap-3 items-center rounded-md">
-                <div>
-                  <MdOutlineLogout />
-                </div>
+                  <div>
+                    <MdOutlineLogout />
+                  </div>
                   <p>Logout</p>
                 </button>
               </li>
