@@ -69,8 +69,8 @@ const AddProperty = () => {
       try {
         setIsSaving(true);
         const saveProperty = await axios.post(
-          "http://localhost:3001/add-property",
-          // "https://foland-realty-server.onrender.com/add-property",
+          // "http://localhost:3001/add-property",
+          "https://foland-realty-server.onrender.com/add-property",
           formData,
           {
             headers: {
