@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 const PhoneTabs = () => {
   return (
     <div className="">
-      <div className="fixed bg-white text-navy-blue bottom-0 left-0 right-0 border-t-2 py-6 ">
+      <div className="fixed bg-white z-[50] text-navy-blue bottom-0 left-0 right-0 border-t-2 py-6 ">
         <div className=" flex justify-evenly items-center  ">
           <NavLink
             className={({ isActive }) =>
