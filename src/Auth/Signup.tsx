@@ -56,93 +56,92 @@ const Signup = () => {
       password,
     };
 
-try {
-  setIsFetching(true);
-  const sendData = await axios.post(
-    // "http://localhost:3001/signup",
-    "https://foland-realty-server.onrender.com/signup",
-    formData
-  );
-  const { data } = await sendData;
-  setFormResponse(data.message);
-  setTimeout(() => {
-    setFormResponse("");
-  }, 4000);
-  if (data.token) {
-    const { data: response } = await axios.get(
-      // "http://localhost:3001/token-verify",
-      // {
-      "https://foland-realty-server.onrender.com/token-verify",
-      {
-        headers: {
-          Authorization: `${data.token}`,
-        },
+    try {
+      setIsFetching(true);
+      const sendData = await axios.post(
+        // "http://localhost:3001/signup",
+        "https://foland-realty-server.onrender.com/signup",
+        formData
+      );
+      const { data } = await sendData;
+      setFormResponse(data.message);
+      setTimeout(() => {
+        setFormResponse("");
+      }, 4000);
+      if (data.token) {
+        const { data: response } = await axios.get(
+          // "http://localhost:3001/token-verify",
+          // {
+          "https://foland-realty-server.onrender.com/token-verify",
+          {
+            headers: {
+              Authorization: `${data.token}`,
+            },
+          }
+        );
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("isLoggedIn", "true");
+        location.replace("/admin");
       }
-    );
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("isLoggedIn", "true");
-    location.replace("/admin");
- 
-  }
-} catch (error) {
-  const axiosError = error as AxiosError<{
-    message?: string;
-    passwordValidationError?: string;
-    emailValidationError?: string;
-  }>;
+    } catch (error) {
+      const axiosError = error as AxiosError<{
+        message?: string;
+        passwordValidationError?: string;
+        emailValidationError?: string;
+      }>;
 
-  const errorMessage =
-    axiosError.response?.data?.message || "An unexpected error occurred.";
-  const passwordValidationErrorMessage =
-    axiosError.response?.data?.passwordValidationError ||
-    "An unexpected error occurred.";
-  const emailValidationErrorMessage =
-    axiosError.response?.data?.emailValidationError ||
-    "An unexpected error occurred.";
+      const errorMessage =
+        axiosError.response?.data?.message || "An unexpected error occurred.";
+      const passwordValidationErrorMessage =
+        axiosError.response?.data?.passwordValidationError ||
+        "An unexpected error occurred.";
+      const emailValidationErrorMessage =
+        axiosError.response?.data?.emailValidationError ||
+        "An unexpected error occurred.";
 
-  if (axiosError.response?.data?.message) {
-    setFormResponse(axiosError.response?.data?.message);
-  }
-  if (axiosError.response?.data?.emailValidationError) {
-    setEmailError(axiosError.response?.data?.emailValidationError);
-    console.log(emailError);
-    setFormResponse('');
-    setTimeout(() => {
-      setEmailError("");
-    }, 4000);
-  }
-  if (axiosError.response?.data?.passwordValidationError) {
-    setPasswordError(axiosError.response?.data?.passwordValidationError);
-    setFormResponse('');
-    setTimeout(() => {
-      setPasswordError("");
-    }, 4000);
-  }
-} finally {
-  // setIsFetching(false);
-  setTimeout(() => {
-    setIsFetching(false);
-  },  2500);
-}
+      if (axiosError.response?.data?.message) {
+        setFormResponse(axiosError.response?.data?.message);
+      }
+      if (axiosError.response?.data?.emailValidationError) {
+        setEmailError(axiosError.response?.data?.emailValidationError);
+        console.log(emailError);
+        setFormResponse("");
+        setTimeout(() => {
+          setEmailError("");
+        }, 4000);
+      }
+      if (axiosError.response?.data?.passwordValidationError) {
+        setPasswordError(axiosError.response?.data?.passwordValidationError);
+        setFormResponse("");
+        setTimeout(() => {
+          setPasswordError("");
+        }, 4000);
+      }
+    } finally {
+      // setIsFetching(false);
+      setTimeout(() => {
+        setIsFetching(false);
+      }, 2500);
+    }
   };
 
   useEffect(() => {
     if (formResponse) {
       setTimeout(() => {
-        setFormResponse("");;
+        setFormResponse("");
         setEmailError("");
       }, 4000);
-    };
+    }
   }, [formResponse]);
 
   return (
     <div className="w-[80%]  mx-auto max-md:w-[90%]">
-       {/* <Helmet> */}
-        {/* <title>Sign Up- Foland Realty</title> */}
-        {/* <meta name="description" content="Learn more about Foland Realty, our mission, and how we help you find and manage rental properties." /> */}
-        {/* <meta name="keywords" content="about Foland Realty, real estate company, rental management, property leasing" /> */}
+      {/* <Helmet> */}
+      {/* <title>Sign Up- Foland Realty</title> */}
+      {/* <meta name="description" content="Learn more about Foland Realty, our mission, and how we help you find and manage rental properties." /> */}
+      {/* <meta name="keywords" content="about Foland Realty, real estate company, rental management, property leasing" /> */}
       {/* </Helmet> */}
-  <div className="flex justify-center">
+      <div className="flex justify-center">
         <img src={Logo} className="scale-[.6]" alt="Foland Realty" />
       </div>
       <div className="">
@@ -268,7 +267,9 @@ try {
         <div className="flex items-center justify-center w-full">
           <button
             disabled={isFetching ? true : false}
-            className={`${isFetching ? 'opacity-[.6]' : ''} cursor-pointer w-full hover:font-bold bg-blue-800 text-white px-8 pointer rounded-lg py-2.5`}
+            className={`${
+              isFetching ? "opacity-[.6]" : ""
+            } cursor-pointer w-full hover:font-bold bg-blue-800 text-white px-8 pointer rounded-lg py-2.5`}
           >
             {isFetching ? "Please Wait ..." : "Sign Up"}
           </button>
