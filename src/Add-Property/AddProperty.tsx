@@ -23,7 +23,6 @@ type PropertyFormValues = {
 
 const AddProperty = () => {
   const [propertyStatus, setPropertyStatus] = useState<string>("");
-  // const [propertyStatusError, setPropertyStatusError] = useState<string>("");
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const formik = useFormik<PropertyFormValues>({
     initialValues: {
@@ -69,8 +68,8 @@ const AddProperty = () => {
       try {
         setIsSaving(true);
         const saveProperty = await axios.post(
-          "http://localhost:3001/add-property",
-          // "https://foland-realty-server.onrender.com/add-property",
+          // "http://localhost:3001/add-property",
+          "https://foland-realty-server.onrender.com/add-property",
           formData,
           {
             headers: {
