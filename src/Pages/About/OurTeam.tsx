@@ -80,13 +80,13 @@ const OurTeam = () => {
                 <div key={index} className="flex flex-col gap-2">
                   <img
                     src={member.img}
-                    className="rounded-lg mb-3"
+                    className="rounded-lg mb-3 object-center object-cover"
                     alt={member.name}
                   />
-                  <h3 className="text-white text-xl font-bold">
+                  <h3 className="text-white text-2xl font-bold">
                     {member.name}
                   </h3>
-                  <p className="text-gray-600 tracking-wide  text-[.9em]">
+                  <p className="text-gray-600 tracking-wide  text-[em]">
                     {member.role}
                   </p>
                   <div className="w-full h-[1px] mt-2 bg-gray-700"></div>
