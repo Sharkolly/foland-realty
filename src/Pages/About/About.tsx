@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div>
       <div className="bg-navy-blue">
-        <div className="flex gap-8 w-10/12 max-md:w-[91%]  mx-auto max-lg:flex-col-reverse items-stretch max-md:py-10 py-16">
+        <div className="flex gap-8 w-10/12 max-lg:w-[88%]  mx-auto max-lg:flex-col-reverse items-stretch max-md:py-10 py-16">
           <div className="basis-[50%]">
             <img src={about} className="opacity-[.8] w-[95%] rounded-lg max-lg:w-full h-[600px] max-2xl:h-[680px] max-xl:h-[700px]  max-lg:h-[600px] object-cover object-center" alt="About image" />
           </div>
