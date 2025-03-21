@@ -1,0 +1,305 @@
+1. 👤 User Info Section
+Avatar/Profile Picture
+Full Name
+Email Address
+Phone Number
+Role (Tenant, Agent, Landlord, Admin)
+Date Joined
+2. ⚙️ Edit Profile / Update Info
+Editable form for name, email, phone
+Upload/change profile picture
+Change password (with confirm field)
+Email verification status ✅
+3. 🏠 My Properties (for Agent/Landlord)
+List of properties added by the user
+Title, Price, Status (pending/approved/rejected)
+Edit/Delete/View Property
+Button to Add New Property
+4. 💼 My Bookings / Rentals (for Tenant)
+Properties rented/booked by the user
+Payment status
+Booking dates
+Download receipts (PDF)
+5. 🔔 Notifications Tab
+List of push notifications received
+Mark as read/unread
+Toggle preferences (email/push)
+6. 📈 User Activity / Stats
+Number of properties listed
+Number of bookings/rentals
+Profile completeness (e.g., 80% complete)
+Growth (e.g., "3 new properties listed this month")
+7. 💳 Billing / Payment Info (Optional)
+Saved payment methods
+Billing history
+Payment receipts
+8. 🌐 Settings
+Notification preferences (push/email/SMS)
+Privacy settings
+Account Deletion
+9. 📱 Device Management
+List of devices logged in
+Option to log out of other devices
+10. 🧪 Bonus Ideas
+Dark mode toggle 🌙
+Referral code + Invite friends 🎁
+KYC status (Verified/Unverified) ✅
+Social media links (LinkedIn, Twitter)
+
+
+import mongoose from 'mongoose';
+
+const deviceSchema = new mongoose.Schema({
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  deviceInfo: { type: String, required: true },
+  ipAddress: { type: String },
+  lastLogin: { type: Date, default: Date.now },
+});
+
+export const Device = mongoose.model('Device', deviceSchema);
+
+import { Request, Response, NextFunction } from 'express';
+import { Device } from './device.model';
+
+export const saveDevice = async (req: Request, res: Response, next: NextFunction) => {
+  const userId = req.user.id; // assuming req.user exists after auth
+  const deviceInfo = req.headers['user-agent'] || 'Unknown';
+  const ipAddress = req.ip;
+
+  await Device.findOneAndUpdate(
+    { userId, deviceInfo },
+    { ipAddress, lastLogin: new Date() },
+    { upsert: true, new: true }
+  );
+
+  next();
+};
+
+
+import express from 'express';
+import { Device } from './device.model';
+
+const router = express.Router();
+
+router.get('/devices', async (req, res) => {
+  const userId = req.user.id;
+  const devices = await Device.find({ userId });
+  res.json({ devices, count: devices.length });
+});
+
+export default router;
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const Devices = () => {
+  const [devices, setDevices] = useState([]);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const fetchDevices = async () => {
+      const res = await axios.get('/api/devices');
+      setDevices(res.data.devices);
+      setCount(res.data.count);
+    };
+    fetchDevices();
+  }, []);
+
+  return (
+    <div className="p-4 bg-white rounded shadow">
+      <h2 className="text-xl font-bold text-blue-700 mb-2">Logged-in Devices ({count})</h2>
+      <ul className="space-y-2">
+        {devices.map((d: any, idx) => (
+          <li key={idx} className="border p-2 rounded">
+            <p className="text-gray-700">{d.deviceInfo}</p>
+            <p className="text-sm text-gray-500">IP: {d.ipAddress}</p>
+            <p className="text-sm text-gray-500">Last Login: {new Date(d.lastLogin).toLocaleString()}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Devices;
+
+
+
+fingerprint
+
+npm init -y
+npm install express cors @simplewebauthn/server base64url
+
+
+const express = require('express');
+const cors = require('cors');
+const { generateRegistrationOptions, verifyRegistrationResponse, generateAuthenticationOptions, verifyAuthenticationResponse } = require('@simplewebauthn/server');
+const base64url = require('base64url');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+let users = {}; // In-memory users
+let currentChallenge = null;
+
+// Relying Party (Your Web App) Info
+const rpName = 'Your App Name';
+const rpID = 'localhost';  // Change this in production
+const origin = 'http://localhost:3000'; // Your frontend URL
+
+/** Registration Route - Generate Options */
+app.get('/generate-registration-options', (req, res) => {
+  const userID = 'user-id-123'; // This can be a real DB user ID
+  const username = 'demo@example.com';
+
+  const options = generateRegistrationOptions({
+    rpName,
+    rpID,
+    userID,
+    userName: username,
+    attestationType: 'none',
+  });
+
+  currentChallenge = options.challenge;
+  users[userID] = { id: userID, username, credentials: [] };
+
+  res.json(options);
+});
+
+/** Verify Registration Response */
+app.post('/verify-registration', async (req, res) => {
+  const body = req.body;
+  const expectedChallenge = currentChallenge;
+  const expectedOrigin = origin;
+  const expectedRPID = rpID;
+
+  try {
+    const verification = await verifyRegistrationResponse({
+      response: body,
+      expectedChallenge,
+      expectedOrigin,
+      expectedRPID,
+    });
+
+    const { verified, registrationInfo } = verification;
+    if (verified && registrationInfo) {
+      const { credentialPublicKey, credentialID, counter } = registrationInfo;
+      const user = users['user-id-123'];
+      user.credentials.push({
+        credentialID,
+        credentialPublicKey,
+        counter,
+      });
+    }
+
+    res.json({ verified });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+/** Authentication Options */
+app.get('/generate-authentication-options', (req, res) => {
+  const user = users['user-id-123'];
+  const options = generateAuthenticationOptions({
+    rpID,
+    userVerification: 'preferred',
+    allowCredentials: user.credentials.map(cred => ({
+      id: cred.credentialID,
+      type: 'public-key',
+    })),
+  });
+
+  currentChallenge = options.challenge;
+  res.json(options);
+});
+
+/** Verify Authentication */
+app.post('/verify-authentication', async (req, res) => {
+  const body = req.body;
+  const expectedChallenge = currentChallenge;
+  const expectedOrigin = origin;
+  const expectedRPID = rpID;
+
+  try {
+    const user = users['user-id-123'];
+    const dbCred = user.credentials[0];
+
+    const verification = await verifyAuthenticationResponse({
+      response: body,
+      expectedChallenge,
+      expectedOrigin,
+      expectedRPID,
+      authenticator: {
+        credentialPublicKey: dbCred.credentialPublicKey,
+        credentialID: dbCred.credentialID,
+        counter: dbCred.counter,
+      },
+    });
+
+    const { verified, authenticationInfo } = verification;
+
+    if (verified) {
+      dbCred.counter = authenticationInfo.newCounter;
+    }
+
+    res.json({ verified });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.listen(4000, () => console.log('Server running on port 4000'));
+
+
+npm install @simplewebauthn/browser
+
+
+import React from 'react';
+import { startRegistration, startAuthentication } from '@simplewebauthn/browser';
+
+const App = () => {
+  const register = async () => {
+    const resp = await fetch('http://localhost:4000/generate-registration-options');
+    const options = await resp.json();
+
+    const attResp = await startRegistration(options);
+
+    const verificationResp = await fetch('http://localhost:4000/verify-registration', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(attResp),
+    });
+
+    const result = await verificationResp.json();
+    alert(result.verified ? 'Registration successful!' : 'Registration failed');
+  };
+
+  const login = async () => {
+    const resp = await fetch('http://localhost:4000/generate-authentication-options');
+    const options = await resp.json();
+
+    const authResp = await startAuthentication(options);
+
+    const verificationResp = await fetch('http://localhost:4000/verify-authentication', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(authResp),
+    });
+
+    const result = await verificationResp.json();
+    alert(result.verified ? 'Login successful!' : 'Login failed');
+  };
+
+  return (
+    <div style={{ padding: '2rem' }}>
+      <h1>Biometric Auth Demo (Fingerprint/Face ID)</h1>
+      <button onClick={register}>Register with Fingerprint / Face ID</button>
+      <br /><br />
+      <button onClick={login}>Login with Fingerprint / Face ID</button>
+    </div>
+  );
+};
+
+export default App;

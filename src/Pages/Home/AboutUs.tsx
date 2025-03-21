@@ -45,7 +45,7 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className=" mt-10 w-10/12 max-md:w-[90%] mx-auto flex">
+    <div className=" mt-10 w-10/12 max-md:w-[91%] mx-auto flex">
       <div className="w-full flex gap-20 mt-10 max-lg:flex-col max-xl:gap-10 max-md:mt-2">
         <motion.div
           initial={{ x: -150, opacity: 0 }}

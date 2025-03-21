@@ -104,7 +104,7 @@ const BasedLocation = () => {
       }}
       className=" w-full mt-16 py-12"
     >
-      <div className="w-10/12 mx-auto">
+      <div className="w-10/12 mx-auto max-md:w-[91%]">
         <div className="text-center flex flex-col gap-2 ">
           <h2 className="text-navy-blue font-bold text-4xl max-md:text-[27px]">
             Based On Your Location

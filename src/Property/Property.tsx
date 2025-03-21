@@ -15,6 +15,7 @@ import Sell from "../Images/icons/sel;.svg";
 import Buy from "../Images/icons/buy.svg";
 import Search from "../Images/icons/Search.svg";
 import { useState } from "react";
+import CardList from "../Functions/Card.tsx/Card";
 
 type filterPropertyType = "Rent" | "Sell" | "Buy";
 
@@ -220,6 +221,9 @@ const Property = () => {
           </div>
         </div>
       ))}
+
+
+      <CardList/>
     </div>
   );
 };

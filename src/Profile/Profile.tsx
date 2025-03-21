@@ -68,7 +68,7 @@ const dummyUser: UserProfile = {
   verified: true,
 };
 
-const ProfilePage: React.FC = () => {
+const Profile: React.FC = () => {
   const [user, setUser] = useState<UserProfile>(dummyUser);
   const [isEditing, setIsEditing] = useState(false);
   const [editValues, setEditValues] = useState({
@@ -332,4 +332,4 @@ const ProfilePage: React.FC = () => {
   );
 };
 
-export default ProfilePage;
+export default Profile;

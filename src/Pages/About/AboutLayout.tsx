@@ -1,11 +1,15 @@
-
+import About from "./About";
+import ChooseUs from "./ChooseUs";
+import OurTeam from "./OurTeam";
 
 const AboutLayout = () => {
   return (
     <div>
-      Abb
+      <About />
+      <ChooseUs />
+      <OurTeam />
     </div>
-  )
-}
+  );
+};
 
-export default AboutLayout
+export default AboutLayout;
