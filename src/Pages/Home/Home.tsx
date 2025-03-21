@@ -247,11 +247,11 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="bg-white absolute w-[26%] top-[120px] px-8 py-6 rounded-md right-[80px] max-xl:top-[33px] max-xl:right-[30px]  max-xl:w-[36%] max-lg:px-16 max-md:px-6 max-lg:static max-lg:w-[100%] max-md:scale-[1]">
+            <div className="bg-white absolute w-[26%] top-[120px] px-8 py-6 rounded-md right-[80px] max-2xl:top-[33px] max-2xl:right-[30px]  max-2xl:w-[36%] max-lg:px-16 max-md:px-6 max-lg:static max-lg:w-[100%] max-md:scale-[1]">
               <div className="flex gap-4">
                 <img
                   src={slide.clientImage}
-                  className="w-[100px] h-[100px] max-xl:w-[80px]  max-xl:h-[80px]  max-lg:w-[75px] max-lg:h-[75px] max-md:w-[60px] max-lg:h-[60px]"
+                  className="w-[100px] h-[100px] max-2xl:w-[80px]  max-2xl:h-[80px]  max-lg:w-[75px] max-lg:h-[75px] max-md:w-[60px] max-lg:h-[60px]"
                   alt="client-image"
                 />
                 <div className="flex flex-col gap-1">

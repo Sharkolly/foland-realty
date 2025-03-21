@@ -102,7 +102,7 @@ const BasedLocation = () => {
       style={{
         backgroundImage: "linear-gradient(to bottom, #ffffff, #F0EFFB)",
       }}
-      className=" w-full mt-16 py-12"
+      className=" w-full mt-16 py-12 max-md:mt-6"
     >
       <div className="w-10/12 mx-auto max-md:w-[91%]">
         <div className="text-center flex flex-col gap-2 ">
@@ -158,7 +158,7 @@ const BasedLocation = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={transition}
           viewport={{ once: true }}
-          className="flex justify-between gap-10 mt-10 flex-wrap max-lg:flex-col"
+          className="grid grid-cols-3 gap-8  max-lg:grid-cols-1 max-2xl:grid-cols-2 mt-10"
         >
           {housesProperty.map((house, index) => (
             <div

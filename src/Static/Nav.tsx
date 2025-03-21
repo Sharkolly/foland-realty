@@ -14,7 +14,7 @@ import { IoMdSettings } from "react-icons/io";
 const Nav = () => {
   const { token, isLoggedIn } = useContextStore();
 
-  const {menu, setMenu, profileMenu, setProfileMenu} = useContextStore();
+  const { menu, setMenu, profileMenu, setProfileMenu } = useContextStore();
 
   const changeMenu = () => setMenu(!menu);
   const changeProfileMenu = () => setProfileMenu(!profileMenu);
@@ -157,63 +157,68 @@ const Nav = () => {
                 P
               </button>
 
-              {profileMenu && <div>
-                <ul className="absolute flex flex-col w-[650%] bg-white border-b-2 border-l-2 top-[70px] border-slate-300 z-[10] left- left-[0%] translate-x-[-50%] gap-7 py-6 px-8 ">
-                  <li className="">
-                    <NavLink
-                      className={({ isActive }) =>
-                        isActive
-                          ? "font-semibold flex gap-3 items-center opacity-[1]"
-                          : " flex gap-3 items-center opacity-[.8]"
-                      }
-                      to="/saved-properties"
-                    >
-                      <div>
-                        <FaBookmark />
-                      </div>
-                      <p>My Saved Properties</p>
-                    </NavLink>
-                  </li>
-                  <li className="">
-                    <NavLink
-                      className={({ isActive }) =>
-                        isActive
-                          ? "font-semibold flex gap-3 items-center opacity-[1]"
-                          : " flex gap-3 items-center opacity-[.8]"
-                      }
-                      to="/profile"
-                    >
-                      <div>
-                        <CgProfile />
-                      </div>
-                      <p>My Profile</p>
-                    </NavLink>
-                  </li>
-                  <li className="">
-                    <NavLink
-                      className={({ isActive }) =>
-                        isActive
-                          ? "font-semibold flex gap-3 items-center opacity-[1]"
-                          : " flex gap-3 items-center opacity-[.8]"
-                      }
-                      to="/settings"
-                    >
-                      <div>
-                        <IoMdSettings />
-                      </div>
-                      <p>Settings</p>
-                    </NavLink>
-                  </li>
-                  <li className="">
-                    <button onClick={logOut} className="flex gap-3 items-center rounded-md">
-                      <div>
-                        <MdOutlineLogout />
-                      </div>
-                      <p>Logout</p>
-                    </button>
-                  </li>
-                </ul>
-              </div>}
+              {profileMenu && (
+                <div>
+                  <ul className="absolute flex flex-col w-[650%] bg-white border-b-2 border-l-2 top-[70px] border-slate-300 z-[10] left- left-[0%] translate-x-[-50%] gap-7 py-6 px-8 ">
+                    <li className="">
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive
+                            ? "font-semibold flex gap-3 items-center opacity-[1]"
+                            : " flex gap-3 items-center opacity-[.8]"
+                        }
+                        to="/saved-properties"
+                      >
+                        <div>
+                          <FaBookmark />
+                        </div>
+                        <p>My Saved Properties</p>
+                      </NavLink>
+                    </li>
+                    <li className="">
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive
+                            ? "font-semibold flex gap-3 items-center opacity-[1]"
+                            : " flex gap-3 items-center opacity-[.8]"
+                        }
+                        to="/profile"
+                      >
+                        <div>
+                          <CgProfile />
+                        </div>
+                        <p>My Profile</p>
+                      </NavLink>
+                    </li>
+                    <li className="">
+                      <NavLink
+                        className={({ isActive }) =>
+                          isActive
+                            ? "font-semibold flex gap-3 items-center opacity-[1]"
+                            : " flex gap-3 items-center opacity-[.8]"
+                        }
+                        to="/settings"
+                      >
+                        <div>
+                          <IoMdSettings />
+                        </div>
+                        <p>Settings</p>
+                      </NavLink>
+                    </li>
+                    <li className="cursor-pointer">
+                      <button
+                        onClick={logOut}
+                        className="flex cursor-pointer gap-3 items-center rounded-md"
+                      >
+                        <div>
+                          <MdOutlineLogout />
+                        </div>
+                        <p>Logout</p>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </div>
           ) : (
             <>
@@ -232,5 +237,3 @@ const Nav = () => {
 };
 
 export default Nav;
-
-

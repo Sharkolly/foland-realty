@@ -46,16 +46,16 @@ const AboutUs = () => {
 
   return (
     <div className=" mt-10 w-10/12 max-md:w-[91%] mx-auto flex">
-      <div className="w-full flex gap-20 mt-10 max-lg:flex-col max-xl:gap-10 max-md:mt-2">
+      <div className="w-full flex gap-10 mt-10 max-lg:flex-col max-xl:gap-10 max-md:mt-2">
         <motion.div
           initial={{ x: -150, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={transition}
           viewport={{ once: true }}
-          className="bg-[#F7F7FD] w-[35%] pt-8 rounded-lg relative max-xl:pt-4 max-xl:w-[40%] max-lg:w-full"
+          className="bg-[#F7F7FD] w-[38%] pt-8 rounded-lg relative max-xl:pt-4 max-xl:w-[40%] max-lg:w-full"
         >
           {/* <div className="bg-[#F7F7FD] w-[35%] pt-8 rounded-lg relative h-[590px] max-md:h-[680px] max-xl:w-[40%] max-lg:w-full"> */}
-          <motion.div className="px-9 flex flex-col gap-5 max-xl:gap-4 max-md:px-7">
+          <motion.div className="px-9  flex flex-col gap-5 max-xl:gap-4 max-md:px-7">
             <h2 className="text-semi-navy-blue text-3xl font-bold">
               The New Way To Find Your New Home
             </h2>
@@ -84,7 +84,7 @@ const AboutUs = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={transition}
           viewport={{ once: true }}
-          className="flex w-[60%] flex-wrap gap-8 text-navy-blue max-lg:w-full max-md:flex-col max-md:gap-10 max-xl:gap-6 max-lg:text-left"
+          className="grid grid-cols-2 gap-8 py-7 max-md:pb-0 pt-2 max-md:grid-cols-1 max-lg:grid-cols-2 max-2xl:grid-cols-2  w-[62%] max-lg:w-full"
         >
           {AboutUsDetails.map((item, index) => (
             <motion.div
@@ -93,7 +93,7 @@ const AboutUs = () => {
               transition={transition}
               viewport={{ once: true }}
               key={index}
-              className="basis-[330px] max-xl:basis-[47%] max-lg:basis-[48%] max-md:basis-0  max-md:border-b-2 max-md:border-gray-200 max-md:pb-7"
+              className=" max-md:border-b-2 max-md:border-gray-200 max-md:pb-7"
             >
               <div className=" gap-4">
                 <div className="flex flex-col gap-5">
