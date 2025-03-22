@@ -51,7 +51,7 @@ const Login = () => {
         );
         localStorage.setItem("token", data.token);
         localStorage.setItem("isLoggedIn", "true");
-        location.replace("/admin");
+        location.replace("/properties");
       }
     } catch (error) {
       const axiosError = error as AxiosError<{ message?: string }>;
